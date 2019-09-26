@@ -7,16 +7,24 @@
   <body>
     <div class="holder">
       <h1>A Keyboard Controller</h1>
-      <h2>Designed with Smash Ultimate in mind, for the Nintendo Switch</h2>
+      <h2>Designed with Smash Ultimate in mind,<br /></h2>
+      <small><h2>For the Nintendo Switch</h2></small>
       <form id="interest-form" name="interest-form">
+        <label for="interested-email"
+          >Drop your email below and I'll let you know when it's ready!</label
+        >
         <input
           type="email"
           required
           name="interested-email"
           id="interested-email"
-          placeholder="lucina@nintendo.com"
+          placeholder="sans@waluigi.wah"
         />
-        <input type="submit" onclick="handleSubmit" />
+        <input
+          type="submit"
+          value="Tell me when it's finished!"
+          onclick="handleSubmit"
+        />
       </form>
     </div>
 
