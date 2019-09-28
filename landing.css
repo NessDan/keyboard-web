@@ -3,6 +3,16 @@
   font-family: monospace;
 }
 
+html {
+  font-size: 62.5%;
+}
+
+@media screen and (min-width: 700px) and (min-height: 1200px) {
+  html {
+    font-size: 200%;
+  }
+}
+
 html,
 body {
   margin: 0;
@@ -35,7 +45,7 @@ form#interest-form {
 }
 
 input#interested-email {
-  font-size: 22px;
+  font-size: 2.2rem;
   padding: 12px 14px;
   border-radius: 5px;
   border: 2px solid #d0daff;
@@ -53,7 +63,7 @@ input[type="submit"] {
   border: none;
   background: green;
   color: white;
-  font-size: 16px;
+  font-size: 1.6rem;
   padding: 16px 8px;
   text-transform: uppercase;
   word-spacing: 2.4px;
@@ -86,7 +96,7 @@ input[type="submit"] {
 }
 
 #interested-label {
-  font-size: 24px;
+  font-size: 2.4rem;
   margin: 16px;
 }
 
@@ -104,10 +114,10 @@ input[type="submit"] {
   margin: 4px 16px;
   font-family: monospace;
   font-weight: bold;
-  font-size: 36 px;
+  font-size: 3.6rem;
 }
 
 .subtitle {
   margin: 4px 16px;
-  font-size: 16px;
+  font-size: 1.6rem;
 }
