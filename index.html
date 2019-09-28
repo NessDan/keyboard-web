@@ -5,13 +5,14 @@
       A Keyboard Controller for Smash Ultimate on the Nintendo Switch - Made
       with love by NessDan
     </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="landing.css" />
   </head>
   <body>
     <div class="page-wrapper">
       <div class="heading-wrapper shadow bottom">
         <h1 class="page-title">A Keyboard Controller</h1>
-        <p class="subtitle">(Made with Smash Ultimate in mind.)</p>
+        <p class="subtitle">(Made with Smash Ultimate in mind. Coming soon!)</p>
       </div>
       <div class="video-wrapper">
         <video autoplay muted loop id="demo-video">
@@ -20,7 +21,13 @@
         <!-- <div class="shadow"></div> -->
       </div>
       <div class="subscribe shadow top">
-        <form id="interest-form" name="interest-form">
+        <div id="thank-you" class="thank-you hidden">
+          <strong
+            >Thank you so much! I'm excited to be making these and I hope you
+            like it as much as I have!<br />😁</strong
+          >
+        </div>
+        <form id="interest-form" name="interest-form" class="interest-form">
           <label id="interested-label" for="interested-email"
             >Leave your email and I'll let you know when I'm done 🙂</label
           >
@@ -32,6 +39,7 @@
             placeholder="sans@waluigi.wah"
           />
           <input
+            id="interested-submit"
             type="submit"
             value="Tell me when it's finished!"
             onclick="handleSubmit"
@@ -66,8 +74,15 @@
     <script>
       function handleSubmit(ev) {
         ev.preventDefault();
+        const submitButton = document.getElementById("interested-submit");
         const emailInput = document.getElementById("interested-email");
         const emailVal = emailInput.value;
+        const formEle = document.getElementById("interest-form");
+        const thankYouEle = document.getElementById("thank-you");
+        const originalSubmitText = submitButton.value;
+
+        submitButton.disabled = true; // Don't let them press more than once
+        submitButton.value = "Beaming it up... 🛸";
 
         var db = firebase.firestore();
         db.collection("emails")
@@ -75,10 +90,14 @@
             email: emailVal
           })
           .then(function(docRef) {
-            console.log("Document written with ID: ", docRef.id);
+            // console.log("Document written with ID: ", docRef.id);
+            formEle.classList.add("hidden");
+            thankYouEle.classList.remove("hidden");
           })
           .catch(function(error) {
             console.error("Error adding document: ", error);
+            submitButton.disabled = false;
+            submitButton.value = originalSubmitText;
           });
       }
 

@@ -39,25 +39,25 @@ body {
   margin: 0 auto;
 }
 
-form#interest-form {
+.interest-form {
   display: flex;
   flex-direction: column;
 }
 
-input#interested-email {
-  font-size: 2.2rem;
-  padding: 12px 14px;
+#interested-email {
+  font-size: 3.6rem;
+  padding: 6px 8px;
   border-radius: 5px;
   border: 2px solid #d0daff;
   text-align: center;
 }
 
-input[type="submit"][disabled] {
+#interested-submit[disabled] {
   background: gray;
   color: #c7c7c7;
 }
 
-input[type="submit"] {
+#interested-submit {
   margin-top: 20px;
   -webkit-appearance: none;
   border: none;
@@ -137,4 +137,18 @@ input[type="submit"] {
 .subtitle {
   margin: 4px 16px;
   font-size: 1.6rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.thank-you {
+  font-size: 3rem;
+}
+
+@media screen and (min-width: 700px) and (min-height: 1200px) {
+  .thank-you {
+    font-size: 4rem;
+  }
 }
