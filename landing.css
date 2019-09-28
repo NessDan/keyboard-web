@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: monospace;
 }
 
 html,
@@ -10,7 +11,6 @@ body {
   width: 100%;
   background: black;
   color: white;
-  font-family: sans-serif;
 }
 
 #demo-video {
@@ -64,6 +64,7 @@ input[type="submit"] {
   height: 100%;
   width: 100%;
   justify-content: space-between;
+  text-align: center;
 }
 
 .subscribe {
@@ -97,3 +98,15 @@ input[type="submit"] {
   box-shadow: inset 0px -20px 15px 13px black;
   z-index: 3;
 } */
+
+.page-title {
+  margin: 4px 16px;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 36 px;
+}
+
+.subtitle {
+  margin: 4px 16px;
+  font-size: 16px;
+}
