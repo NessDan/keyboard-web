@@ -35,21 +35,25 @@ form#interest-form {
 }
 
 input#interested-email {
-  font-size: 28px;
-  padding: 12px 18px;
+  font-size: 22px;
+  padding: 12px 14px;
   border-radius: 5px;
   border: 2px solid #d0daff;
+}
+
+input[type="submit"].inactive {
+  background: gray;
+  color: #c7c7c7;
 }
 
 input[type="submit"] {
   margin-top: 20px;
   -webkit-appearance: none;
-  border: 2px solid green;
-  border-radius: 4px;
+  border: none;
   background: green;
   color: white;
   font-size: 16px;
-  padding: 12px;
+  padding: 16px 8px;
   text-transform: uppercase;
   word-spacing: 2.4px;
 }
@@ -81,6 +85,7 @@ input[type="submit"] {
 
 #interested-label {
   font-size: 24px;
+  margin: 16px;
 }
 
 /* .shadow {
