@@ -52,7 +52,7 @@ input#interested-email {
   text-align: center;
 }
 
-input[type="submit"].inactive {
+input[type="submit"][disabled] {
   background: gray;
   color: #c7c7c7;
 }
