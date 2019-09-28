@@ -5,7 +5,34 @@
     <link rel="stylesheet" href="landing.css" />
   </head>
   <body>
-    <div class="holder">
+    <div class="page-wrapper">
+      <div class="video-wrapper">
+        <video autoplay muted loop id="demo-video">
+          <source src="./video.webm" type="video/webm" />
+        </video>
+        <!-- <div class="shadow"></div> -->
+      </div>
+      <div class="subscribe">
+        <form id="interest-form" name="interest-form">
+          <label id="interested-label" for="interested-email"
+            >Drop your email below and I'll let you know when it's ready!</label
+          >
+          <input
+            type="email"
+            required
+            name="interested-email"
+            id="interested-email"
+            placeholder="sans@waluigi.wah"
+          />
+          <input
+            type="submit"
+            value="Tell me when it's finished!"
+            onclick="handleSubmit"
+          />
+        </form>
+      </div>
+    </div>
+    <!-- <div class="holder">
       <h1>A Keyboard Controller</h1>
       <h2>Designed with Smash Ultimate in mind,<br /></h2>
       <small><h2>For the Nintendo Switch</h2></small>
@@ -26,7 +53,7 @@
           onclick="handleSubmit"
         />
       </form>
-    </div>
+    </div> -->
 
     <!-- My App JS -->
     <script>
