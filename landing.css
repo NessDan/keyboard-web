@@ -39,6 +39,7 @@ input#interested-email {
   padding: 12px 14px;
   border-radius: 5px;
   border: 2px solid #d0daff;
+  text-align: center;
 }
 
 input[type="submit"].inactive {
