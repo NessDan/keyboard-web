@@ -17,17 +17,28 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
   width: 100%;
   background: black;
   color: white;
 }
 
+html,
+body,
+.the-fold {
+  min-height: 100vh;
+}
+
 #demo-video {
-  max-height: 100%;
   align-self: start;
   z-index: 1;
-  min-width: 1760px;
+  width: 100%; /*this would need to be removed for the bottom to work again.*/
+  /* min-width: 1760px; This let the video shrink but keep the middle portion of the video visible */
+}
+
+@media screen and (orientation: landscape) {
+  #demo-video {
+    width: 70%; /*this would need to be removed for the bottom to work again.*/
+  }
 }
 
 .holder {
@@ -60,7 +71,7 @@ body {
   margin-top: 20px;
   -webkit-appearance: none;
   border: none;
-  background: green;
+  background: linear-gradient(#2d772d, #003800);
   color: white;
   font-size: 2.4rem;
   padding: 24px 8px;
@@ -69,16 +80,23 @@ body {
   white-space: normal;
 }
 
+#interested-submit:hover {
+  background-position: 100px;
+}
+
+#interested-submit:active {
+  background: radial-gradient(#003200, #006f00);
+}
+
 @media screen and (min-width: 700px) and (min-height: 1200px) {
   input[type="submit"] {
     padding: 36px 8px;
   }
 }
 
-.page-wrapper {
+.the-fold {
   display: flex;
   flex-direction: column;
-  height: 100%;
   width: 100%;
   justify-content: space-between;
   text-align: center;
@@ -92,28 +110,24 @@ body {
 }
 
 .shadow.top {
-  box-shadow: 0px -5px 5px 20px rgb(0, 0, 0);
+  box-shadow: 0px -5px 5px 5px rgb(0, 0, 0);
 }
 
 .shadow.bottom {
-  box-shadow: 0px 5px 5px 20px rgb(0, 0, 0);
+  box-shadow: 0px 5px 5px 5px rgb(0, 0, 0);
 }
 
 .video-wrapper {
   display: flex;
   justify-content: center;
-  box-shadow: inset -1px -9px 15px 13px black;
-  height: 100%;
-  background-color: black;
   z-index: 2;
   position: relative;
   overflow: hidden;
-  margin: 20px 0;
 }
 
 #interested-label {
   font-size: 2.4rem;
-  margin: 16px;
+  margin: 10px;
 }
 
 /* .shadow {
@@ -126,11 +140,15 @@ body {
   z-index: 3;
 } */
 
+.heading-wrapper {
+  margin-bottom: 10px;
+}
+
 .page-title {
   margin: 4px 16px;
   font-family: monospace;
   font-weight: bold;
-  font-size: 3.6rem;
+  font-size: 3.2rem;
 }
 
 .subtitle {
