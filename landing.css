@@ -26,7 +26,6 @@ body {
 #demo-video {
   max-height: 100%;
   align-self: start;
-  box-shadow: inset -1px -9px 15px 13px black;
   z-index: 1;
   min-width: 1760px;
 }
@@ -93,11 +92,11 @@ body {
 }
 
 .shadow.top {
-  box-shadow: 0px -20px 20px 20px rgb(0, 0, 0);
+  box-shadow: 0px -5px 5px 20px rgb(0, 0, 0);
 }
 
 .shadow.bottom {
-  box-shadow: 0px 20px 20px 20px rgb(0, 0, 0);
+  box-shadow: 0px 5px 5px 20px rgb(0, 0, 0);
 }
 
 .video-wrapper {
@@ -151,4 +150,8 @@ body {
   .thank-you {
     font-size: 4rem;
   }
+}
+
+.word-box {
+  display: inline-block;
 }
