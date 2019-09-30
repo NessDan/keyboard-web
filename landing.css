@@ -35,9 +35,9 @@ body,
   /* min-width: 1760px; This let the video shrink but keep the middle portion of the video visible */
 }
 
-@media screen and (orientation: landscape) {
+@media screen and (max-width: 1200px) and (max-height: 1200px) and (orientation: landscape) {
   #demo-video {
-    width: 70%; /*this would need to be removed for the bottom to work again.*/
+    width: 110vh; /*this would need to be removed for the bottom to work again.*/
   }
 }
 
