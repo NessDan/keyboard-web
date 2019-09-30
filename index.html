@@ -72,23 +72,31 @@
         const originalSubmitText = submitButton.value;
 
         submitButton.disabled = true; // Don't let them press more than once
+        submitButton.classList.remove("failed");
         submitButton.value = "Beaming it up... 🛸";
 
-        var db = firebase.firestore();
-        db.collection("emails")
-          .add({
-            email: emailVal
-          })
-          .then(function(docRef) {
-            // console.log("Document written with ID: ", docRef.id);
-            formEle.classList.add("hidden");
-            thankYouEle.classList.remove("hidden");
-          })
-          .catch(function(error) {
-            console.error("Error adding document: ", error);
-            submitButton.disabled = false;
-            submitButton.value = originalSubmitText;
-          });
+        const handleError = error => {
+          console.error("Error adding document: ", error);
+          submitButton.disabled = false;
+          submitButton.classList.add("failed");
+          submitButton.value = "Failed 😞 Try once more!";
+        };
+
+        try {
+          var db = firebase.firestore();
+          db.collection("emails")
+            .add({
+              email: emailVal
+            })
+            .then(function(docRef) {
+              // console.log("Document written with ID: ", docRef.id);
+              formEle.classList.add("hidden");
+              thankYouEle.classList.remove("hidden");
+            })
+            .catch(handleError);
+        } catch (e) {
+          handleError(e);
+        }
       }
 
       const interestFormEle = document.getElementById("interest-form");
