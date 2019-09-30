@@ -2,8 +2,7 @@
 <html>
   <head>
     <title>
-      A Keyboard Controller for Smash Ultimate on the Nintendo Switch - Made
-      with love by NessDan
+      The Smash Keyboard Controller - Made with love by NessDan
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="landing.css" />
@@ -20,7 +19,6 @@
         <video autoplay muted loop id="demo-video">
           <source src="https://i.imgur.com/ZxjAmMl.mp4" type="video/mp4" />
         </video>
-        <!-- <div class="shadow"></div> -->
       </div>
       <div class="subscribe shadow top">
         <div id="thank-you" class="thank-you hidden">
@@ -44,37 +42,14 @@
             id="interested-submit"
             type="submit"
             value="Tell me when it's finished!"
-            onclick="handleSubmit"
           />
         </form>
       </div>
     </div>
-    <!-- <div class="holder">
-      <h1>A Keyboard Controller</h1>
-      <h2>Designed with Smash Ultimate in mind,<br /></h2>
-      <small><h2>For the Nintendo Switch</h2></small>
-      <form id="interest-form" name="interest-form">
-        <label for="interested-email"
-          >Drop your email below and I'll let you know when it's ready!</label
-        >
-        <input
-          type="email"
-          required
-          name="interested-email"
-          id="interested-email"
-          placeholder="sans@waluigi.wah"
-        />
-        <input
-          type="submit"
-          value="Tell me when it's finished!"
-          onclick="handleSubmit"
-        />
-      </form>
-    </div> -->
 
     <!-- My App JS -->
     <script>
-      function handleSubmit(ev) {
+      function handleInterestFormSubmit(ev) {
         ev.preventDefault();
         const submitButton = document.getElementById("interested-submit");
         const emailInput = document.getElementById("interested-email");
@@ -104,7 +79,7 @@
       }
 
       const interestFormEle = document.getElementById("interest-form");
-      interestFormEle.addEventListener("submit", handleSubmit);
+      interestFormEle.addEventListener("submit", handleInterestFormSubmit);
     </script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
