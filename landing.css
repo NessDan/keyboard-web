@@ -139,6 +139,7 @@ body,
 
 .subscribe {
   margin-top: 10px;
+  flex-basis: 100%; /*Make sure it takes up a whole row always. */
 }
 
 .page-title {
