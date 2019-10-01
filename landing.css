@@ -29,7 +29,7 @@ body,
 }
 
 #demo-video {
-  align-self: start;
+  margin: 0 auto;
   z-index: 1;
   width: 100%; /*this would need to be removed for the bottom to work again.*/
   /* min-width: 1760px; This let the video shrink but keep the middle portion of the video visible */
@@ -116,12 +116,6 @@ body,
 
 .shadow.bottom {
   box-shadow: 0px 5px 5px 5px rgb(0, 0, 0);
-}
-
-.video-wrapper {
-  display: flex;
-  justify-content: center;
-  z-index: 2;
 }
 
 #interested-label {
