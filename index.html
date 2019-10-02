@@ -46,6 +46,10 @@
       </div>
     </div>
 
+    <!-- <h2>What is this?</h2>
+
+    <p>This is an adapter to turn almost any keyboard into a Switch controller.</p>-->
+
     <!-- <section class="features">
         <h2>Features</h2>
 
@@ -85,6 +89,7 @@
           var db = firebase.firestore();
           db.collection("emails")
             .add({
+              timestamp: firebase.firestore.FieldValue.serverTimestamp(),
               email: emailVal
             })
             .then(function(docRef) {
