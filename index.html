@@ -14,61 +14,72 @@
     <link rel="stylesheet" href="landing.css" />
   </head>
   <body>
-    <div class="the-fold">
-      <div class="heading-wrapper">
-        <h1 class="page-title">
-          The Smash <span class="word-box">Keyboard Controller Adapter</span>
-        </h1>
-        <p class="subtitle">(Coming soon!)</p>
-      </div>
-      <video autoplay loop playsinline muted id="demo-video">
-        <source src="https://i.imgur.com/ZxjAmMl.mp4" type="video/mp4" />
-      </video>
-      <div class="subscribe">
-        <div id="thank-you" class="thank-you hidden">
-          <strong
-            >Thank you so much! I'm excited to be making these and I hope you
-            like it as much as I have!<br />😁</strong
-          >
+    <main>
+      <div class="the-fold">
+        <div class="heading-wrapper">
+          <h1 class="page-title">
+            The Smash <span class="word-box">Keyboard Controller Adapter</span>
+          </h1>
+          <p class="subtitle">(Coming soon!)</p>
         </div>
-        <form id="interest-form" name="interest-form" class="interest-form">
-          <label id="interested-label" for="interested-email"
-            >Leave your email and I'll let you know when I'm done 🙂</label
-          >
-          <input
-            type="email"
-            required
-            autocomplete="email"
-            name="interested-email"
-            id="interested-email"
-            placeholder="sans@waluigi.wah"
-          />
-          <input
-            id="interested-submit"
-            type="submit"
-            value="Tell me when it's finished!"
-          />
-        </form>
+        <video autoplay loop playsinline muted id="demo-video">
+          <source src="https://i.imgur.com/ZxjAmMl.mp4" type="video/mp4" />
+        </video>
+        <div class="subscribe">
+          <div id="thank-you" class="thank-you hidden">
+            <strong
+              >Thank you so much! I'm excited to be making these and I hope you
+              like it as much as I have!<br />😁</strong
+            >
+          </div>
+          <form id="interest-form" name="interest-form" class="interest-form">
+            <label id="interested-label" for="interested-email"
+              >Leave your email and I'll let you know when I'm done 🙂</label
+            >
+            <input
+              type="email"
+              required
+              autocomplete="email"
+              name="interested-email"
+              id="interested-email"
+              placeholder="sans@waluigi.wah"
+            />
+            <input
+              id="interested-submit"
+              type="submit"
+              value="Tell me when it's finished!"
+            />
+          </form>
+        </div>
       </div>
-    </div>
 
-    <!-- <h2>What is this?</h2>
+      <section class="what">
+        <h2>What is this?</h2>
 
-    <p>This is an adapter to turn almost any keyboard into a Switch controller.</p>-->
+        <p>
+          An adapter that turns <em>any keyboard</em> into a Switch controller.
+        </p>
+        <p>
+          Made with <strong>Smash Ultimate</strong> in mind, but also compatible
+          with games like <strong>Tetris 99</strong>,
+          <strong>Super Mario Maker 2</strong>, <strong>Celeste</strong>, and
+          more!
+        </p>
+      </section>
 
-    <!-- <section class="features">
+      <section class="features">
         <h2>Features</h2>
 
         <ul>
-          <li>Compatible with all Switch games</li>
-          <li>Customize your button mappings</li>
-          <li>Swap between button presets you've created</li>
-          <li>Supports some wireless keyboards</li>
-          <li>PC Compatible</li>
+          <li>Compatible with any* Switch game</li>
+          <li>Customizable button presets</li>
+          <li>Compatible with most keyboards</li>
+          <li>Controller Compatibility on PC</li>
           <li>Small form factor</li>
         </ul>
-      </section> -->
-
+        <small>*Excludes motion control games.</small>
+      </section>
+    </main>
     <!-- My App JS -->
     <script>
       function handleInterestFormSubmit(ev) {
@@ -113,14 +124,11 @@
       interestFormEle.addEventListener("submit", handleInterestFormSubmit);
     </script>
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <!-- Core Firebase JS SDK (required) -->
     <script
       defer="true"
       src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"
     ></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
     <script
       defer="true"
       src="https://www.gstatic.com/firebasejs/7.0.0/firebase-analytics.js"

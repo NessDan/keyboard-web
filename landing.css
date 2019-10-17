@@ -22,10 +22,27 @@ body {
   color: white;
 }
 
-html,
-body,
-.the-fold {
-  height: 100%;
+h1 {
+  font-size: 3.2rem;
+}
+
+h2 {
+  font-size: 2.8rem;
+}
+
+section {
+  margin: 0 10px;
+}
+
+p,
+ul,
+ol {
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+small {
+  font-size: 1.7rem;
 }
 
 #demo-video {
@@ -90,15 +107,19 @@ body,
   }
 }
 
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+}
+
 .the-fold {
+  min-height: 100vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   text-align: center;
-  max-width: 720px;
-  margin: 0 auto;
 }
 
 .the-fold > * {
