@@ -114,6 +114,7 @@
               // console.log("Document written with ID: ", docRef.id);
               formEle.classList.add("hidden");
               thankYouEle.classList.remove("hidden");
+              firebase.analytics().logEvent("email_signup");
             })
             .catch(handleError);
         } catch (e) {
