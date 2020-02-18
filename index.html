@@ -2,143 +2,24 @@
 <html lang="en">
   <head>
     <title>
-      The Smash Keyboard Controller (It's an adapter!)
+      The Edgeguard: Keyboard to Controller Adapter for the Nintendo Switch
     </title>
     <meta
       name="description"
       content="Play Smash Ultimate with a Keyboard! This adapter turns any keyboard into a Nintendo Switch controller. Compatible with games like Tetris 99, Super Mario Maker 2, Celeste, and more!"
     />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="landing.css" />
   </head>
   <body>
-    <main>
-      <div class="the-fold">
-        <div class="heading-wrapper">
-          <h1 class="page-title">
-            Play Smash with a Keyboard!
-          </h1>
-          <p class="subtitle">(Coming soon!)</p>
-        </div>
-        <video autoplay loop playsinline muted id="demo-video">
-          <source src="https://i.imgur.com/ZxjAmMl.mp4" type="video/mp4" />
-        </video>
-        <div class="subscribe">
-          <div id="thank-you" class="thank-you hidden">
-            <strong
-              >Thank you so much! I'm excited to be making these and I hope you
-              like it as much as I have!<br />😁</strong
-            >
-          </div>
-          <form id="interest-form" name="interest-form" class="interest-form">
-            <label id="interested-label" for="interested-email"
-              >Leave your email and I'll let you know when I'm done 🙂</label
-            >
-            <input
-              type="email"
-              required
-              autocomplete="email"
-              name="interested-email"
-              id="interested-email"
-              placeholder="sans@waluigi.wah"
-            />
-            <input
-              id="interested-submit"
-              type="submit"
-              value="Tell me when it's finished!"
-            />
-          </form>
-        </div>
-      </div>
+    <script type="text/javascript">
+      let kickstarterUrl = 'https://www.kickstarter.com/projects/edgeguard/keyboard-adapter';
+      const urlParams = window.location.search;
 
-      <section class="what">
-        <h2>What is this?</h2>
-
-        <p>
-          An adapter that turns <em>almost any keyboard</em> into a Switch
-          controller. Allowing you to play Smash with a keyboard!
-        </p>
-        <p>
-          Although it was made with <strong>Smash Ultimate</strong> in mind,
-          this adapter will also be compatible with games like
-          <strong>Tetris 99</strong>, <strong>Super Mario Maker 2</strong>, and
-          more!
-        </p>
-      </section>
-
-      <section class="features">
-        <h2>Features</h2>
-
-        <ul>
-          <li>Compatible with any* Switch game</li>
-          <li>Customizable button presets</li>
-          <li>Compatible with most keyboards</li>
-          <li>Recognized as a controller on PC</li>
-          <li>Small form factor</li>
-        </ul>
-        <small>*Excludes motion control games.</small>
-      </section>
-    </main>
-    <!-- My App JS -->
-    <script>
-      function handleInterestFormSubmit(ev) {
-        ev.preventDefault();
-        const submitButton = document.getElementById("interested-submit");
-        const emailInput = document.getElementById("interested-email");
-        const emailVal = emailInput.value;
-        const formEle = document.getElementById("interest-form");
-        const thankYouEle = document.getElementById("thank-you");
-        const originalSubmitText = submitButton.value;
-
-        submitButton.disabled = true; // Don't let them press more than once
-        submitButton.classList.remove("failed");
-        submitButton.value = "Beaming it up... 🛸";
-
-        const handleError = error => {
-          console.error("Error adding document: ", error);
-          submitButton.disabled = false;
-          submitButton.classList.add("failed");
-          submitButton.value = "Failed 😞 Try once more!";
-        };
-
-        try {
-          var db = firebase.firestore();
-          db.collection("emails")
-            .add({
-              timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-              email: emailVal
-            })
-            .then(function(docRef) {
-              // console.log("Document written with ID: ", docRef.id);
-              formEle.classList.add("hidden");
-              thankYouEle.classList.remove("hidden");
-              firebase.analytics().logEvent("email_signup");
-            })
-            .catch(handleError);
-        } catch (e) {
-          handleError(e);
-        }
+      if (urlParams && urlParams.length > 0) {
+        kickstarterUrl = kickstarterUrl + urlParams;
       }
 
-      const interestFormEle = document.getElementById("interest-form");
-      interestFormEle.addEventListener("submit", handleInterestFormSubmit);
+      window.location = kickstarterUrl;
     </script>
-
-    <!-- Core Firebase JS SDK (required) -->
-    <script
-      defer="true"
-      src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"
-    ></script>
-    <script
-      defer="true"
-      src="https://www.gstatic.com/firebasejs/7.0.0/firebase-analytics.js"
-    ></script>
-    <script
-      defer="true"
-      src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"
-    ></script>
-
-    <script defer="true" src="firebase-init.js"></script>
   </body>
 </html>
