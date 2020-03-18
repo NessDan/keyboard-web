@@ -6,7 +6,7 @@
     </title>
     <meta
       name="description"
-      content="Play Smash Ultimate with a Keyboard! This adapter turns any keyboard into a Nintendo Switch controller. Compatible with games like Tetris 99, Super Mario Maker 2, Celeste, and more!"
+      content="Play Smash Ultimate with a Keyboard! The Edgeguard adapter turns any keyboard into a Nintendo Switch controller. Compatible with games like Tetris 99, Super Mario Maker 2, Celeste, and more!"
     />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,13 +17,17 @@
       <div class="the-fold">
         <div class="heading-wrapper">
           <h1 class="page-title">
-            Play Smash with a Keyboard!
+            The Edgeguard Keyboard Adapter
           </h1>
-          <p class="subtitle">(Coming soon!)</p>
+          <h2 class="kickstarter-heading">As seen on <a href="https://www.kickstarter.com/projects/edgeguard/keyboard-adapter">Kickstarter</a>!</h2>
+          <p class="subtitle">Play Smash with a Keyboard! <span class="coming-soon">(Coming soon!)</span></p>
         </div>
-        <video autoplay loop playsinline muted id="demo-video">
-          <source src="https://i.imgur.com/ZxjAmMl.mp4" type="video/mp4" />
-        </video>
+        <div class="videos">
+          <video autoplay loop playsinline muted id="demo-video">
+            <source src="https://i.imgur.com/ZxjAmMl.mp4" type="video/mp4" />
+          </video>
+          <iframe class="kickstarter-video" src="https://www.youtube.com/embed/4rDczKkEeYA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
         <div class="subscribe">
           <div id="thank-you" class="thank-you hidden">
             <strong
@@ -31,8 +35,27 @@
               like it as much as I have!<br />😁</strong
             >
           </div>
-          <form id="interest-form" name="interest-form" class="interest-form">
-            <label id="interested-label" for="interested-email"
+          <form id="price-form" name="price-form" class="price-form hidden">
+            <label class="interested-label" id="interested-price-label" for="interested-price"
+              >What's the most you would pay for the adapter?</label
+            >
+            <input
+              type="number"
+              required
+              name="interested-price"
+              id="interested-price"
+              class="interested-input"
+              placeholder="$999"
+            />
+            <input
+              class="interested-submit"
+              id="interested-price-submit"
+              type="submit"
+              value="I'd pay this much"
+            />
+          </form>
+          <form id="email-form" name="email-form" class="email-form">
+            <label class="interested-label" id="interested-email-label" for="interested-email"
               >Leave your email and I'll let you know when I'm done 🙂</label
             >
             <input
@@ -41,10 +64,12 @@
               autocomplete="email"
               name="interested-email"
               id="interested-email"
-              placeholder="sans@waluigi.wah"
+              class="interested-input"
+              placeholder="email@gmail.com"
             />
             <input
-              id="interested-submit"
+              class="interested-submit"
+              id="interested-email-submit"
               type="submit"
               value="Tell me when it's finished!"
             />
@@ -56,13 +81,13 @@
         <h2>What is this?</h2>
 
         <p>
-          An adapter that turns <em>almost any keyboard</em> into a Switch
-          controller. Allowing you to play Smash with a keyboard!
+          An adapter that turns almost <em>any keyboard</em> into a Switch
+          controller. Letting you play popular games like Super Smash Bros. Ultimate with a keyboard!
         </p>
         <p>
           Although it was made with <strong>Smash Ultimate</strong> in mind,
           this adapter will also be compatible with games like
-          <strong>Tetris 99</strong>, <strong>Super Mario Maker 2</strong>, and
+          <strong>Tetris 99</strong>, <strong>Super Mario Maker 2</strong>, <strong>Mario Kart</strong>, and
           more!
         </p>
       </section>
@@ -82,12 +107,15 @@
     </main>
     <!-- My App JS -->
     <script>
-      function handleInterestFormSubmit(ev) {
+      let emailDocRef; // Store the docRef from Firebase to update the price in later.
+      const emailFormEle = document.getElementById("email-form");
+      const priceFormEle = document.getElementById("price-form");
+
+      function handleEmailFormSubmit(ev) {
         ev.preventDefault();
-        const submitButton = document.getElementById("interested-submit");
+        const submitButton = document.getElementById("interested-email-submit");
         const emailInput = document.getElementById("interested-email");
         const emailVal = emailInput.value;
-        const formEle = document.getElementById("interest-form");
         const thankYouEle = document.getElementById("thank-you");
         const originalSubmitText = submitButton.value;
 
@@ -107,12 +135,14 @@
           db.collection("emails")
             .add({
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-              email: emailVal
+              email: emailVal,
+              price: 0
             })
             .then(function(docRef) {
               // console.log("Document written with ID: ", docRef.id);
-              formEle.classList.add("hidden");
-              thankYouEle.classList.remove("hidden");
+              emailDocRef = docRef;
+              emailFormEle.classList.add("hidden");
+              priceFormEle.classList.remove("hidden");
               firebase.analytics().logEvent("email_signup");
             })
             .catch(handleError);
@@ -121,8 +151,43 @@
         }
       }
 
-      const interestFormEle = document.getElementById("interest-form");
-      interestFormEle.addEventListener("submit", handleInterestFormSubmit);
+      
+      function handlePriceFormSubmit(ev) {
+        ev.preventDefault();
+        const submitButton = document.getElementById("interested-price-submit");
+        const priceInput = document.getElementById("interested-price");
+        const priceVal = priceInput.value;
+        const thankYouEle = document.getElementById("thank-you");
+        const originalSubmitText = submitButton.value;
+
+        submitButton.disabled = true; // Don't let them press more than once
+        submitButton.classList.remove("failed");
+        submitButton.value = "Beaming it up... 🛸";
+
+        const handleError = error => {
+          console.error("Error adding document: ", error);
+          submitButton.disabled = false;
+          submitButton.classList.add("failed");
+          submitButton.value = "Failed 😞 Try once more!";
+        };
+
+        try {
+          emailDocRef.update({
+              price: priceVal
+            })
+            .then(function(docRef) {
+              priceFormEle.classList.add("hidden");
+              thankYouEle.classList.remove("hidden");
+              firebase.analytics().logEvent("price_signup");
+            })
+            .catch(handleError);
+        } catch (e) {
+          handleError(e);
+        }
+      }
+
+      emailFormEle.addEventListener("submit", handleEmailFormSubmit);
+      priceFormEle.addEventListener("submit", handlePriceFormSubmit);
     </script>
 
     <!-- Core Firebase JS SDK (required) -->

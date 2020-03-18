@@ -3,6 +3,10 @@
   font-family: monospace;
 }
 
+a:visited {
+  color: mediumpurple;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -45,12 +49,19 @@ small {
   font-size: 1.7rem;
 }
 
-#demo-video {
+.videos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+#demo-video, .kickstarter-video {
+  flex: 1 1 0;
+  width: 50%;
+  min-width: 200px;
   margin: 0 auto;
   z-index: 1;
-  width: 97vh;
-  max-width: 100%;
-  /* min-width: 1760px; This let the video shrink but keep the middle portion of the video visible */
 }
 
 .holder {
@@ -61,12 +72,12 @@ small {
   margin: 0 auto;
 }
 
-.interest-form {
+.email-form, .price-form {
   display: flex;
   flex-direction: column;
 }
 
-#interested-email {
+.interested-input {
   font-size: 2.5rem;
   padding: 10px 8px;
   border-radius: 5px;
@@ -74,17 +85,17 @@ small {
   text-align: center;
 }
 
-#interested-submit[disabled] {
+.interested-submit[disabled] {
   background: gray;
   color: #c7c7c7;
 }
 
-#interested-submit.failed {
+.interested-submit.failed {
   background: #7c0f0f;
   color: #c7c7c7;
 }
 
-#interested-submit {
+.interested-submit {
   margin-top: 20px;
   -webkit-appearance: none;
   border: none;
@@ -97,7 +108,7 @@ small {
   white-space: normal;
 }
 
-#interested-submit:active {
+.interested-submit:active {
   background: radial-gradient(#1e331e, #2d772d);
 }
 
@@ -108,14 +119,14 @@ small {
 }
 
 main {
-  max-width: 720px;
+  max-width: 1024px;
   margin: 20px auto;
   width: 100%;
 }
 
 .the-fold {
-  min-height: 100vh;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
@@ -139,7 +150,7 @@ main {
   box-shadow: 0px 5px 5px 5px rgb(0, 0, 0);
 }
 
-#interested-label {
+.interested-label {
   font-size: 2.4rem;
   margin: 10px;
 }
@@ -158,9 +169,17 @@ main {
   margin-bottom: 10px;
 }
 
+.kickstarter-heading {
+  margin: 8px 0;
+}
+
+.coming-soon {
+  display: inline-block;
+}
+
 .subscribe {
   margin-top: 10px;
-  flex-basis: 100%; /*Make sure it takes up a whole row always. */
+  max-width: 700px;
 }
 
 .page-title {
