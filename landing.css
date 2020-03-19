@@ -3,6 +3,10 @@
   font-family: monospace;
 }
 
+a {
+  color: mediumspringgreen;
+}
+
 a:visited {
   color: mediumpurple;
 }
@@ -96,13 +100,14 @@ small {
 }
 
 .interested-submit {
+  border-radius: 2px;
   margin-top: 20px;
   -webkit-appearance: none;
   border: none;
   background: linear-gradient(#2d772d, #1b901b);
   color: white;
   font-size: 2.4rem;
-  padding: 24px 8px;
+  padding: 16px 8px;
   text-transform: uppercase;
   word-spacing: 2.4px;
   white-space: normal;
@@ -171,6 +176,10 @@ main {
 
 .kickstarter-heading {
   margin: 8px 0;
+}
+
+.kickstarter-heading a {
+  color: mediumspringgreen;
 }
 
 .coming-soon {
