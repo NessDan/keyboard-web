@@ -8,10 +8,16 @@
       name="description"
       content="Play Smash Ultimate with a Keyboard! The Edgeguard adapter turns any keyboard into a Nintendo Switch controller. Compatible with games like Tetris 99, Super Mario Maker 2, Celeste, and more!"
     />
+    <!-- For YouTube verification -->
+    <meta
+      name="google-site-verification"
+      content="qnYxYtkLBBjt3RoZSQb5o3ZZZHQLDLNmx71yMYKILGE"
+    />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="landing.css" />
   </head>
+
   <body>
     <main>
       <div class="the-fold">
@@ -19,15 +25,30 @@
           <h1 class="page-title">
             The Edgeguard Keyboard Adapter
           </h1>
-          <h2 class="kickstarter-heading">As seen on <a href="https://www.kickstarter.com/projects/edgeguard/keyboard-adapter">Kickstarter</a>!</h2>
-          <p class="subtitle">Play Smash with a Keyboard! <span class="coming-soon">(Coming soon!)</span></p>
+          <h2 class="kickstarter-heading">
+            As seen on
+            <a
+              href="https://www.kickstarter.com/projects/edgeguard/keyboard-adapter"
+              >Kickstarter</a
+            >!
+          </h2>
+          <p class="subtitle">
+            Play Smash with a Keyboard!
+            <span class="coming-soon">(Coming soon!)</span>
+          </p>
         </div>
         <div class="videos">
           <video autoplay loop playsinline muted id="demo-video">
             <source src="https://i.imgur.com/ZxjAmMl.mp4" type="video/mp4" />
           </video>
           <div class="video-wrap">
-            <iframe class="kickstarter-video" src="https://www.youtube.com/embed/4rDczKkEeYA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe
+              class="kickstarter-video"
+              src="https://www.youtube.com/embed/4rDczKkEeYA"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
         <div class="subscribe">
@@ -38,7 +59,10 @@
             >
           </div>
           <form id="price-form" name="price-form" class="price-form hidden">
-            <label class="interested-label" id="interested-price-label" for="interested-price"
+            <label
+              class="interested-label"
+              id="interested-price-label"
+              for="interested-price"
               >What's the most you would pay for the adapter?</label
             >
             <input
@@ -57,7 +81,10 @@
             />
           </form>
           <form id="email-form" name="email-form" class="email-form">
-            <label class="interested-label" id="interested-email-label" for="interested-email"
+            <label
+              class="interested-label"
+              id="interested-email-label"
+              for="interested-email"
               >Leave your email and I'll let you know when I'm done 🙂</label
             >
             <input
@@ -77,27 +104,47 @@
             />
           </form>
         </div>
-        
+
         <section class="socials">
           <h1>Follow our adventure! (Plus DEALS!) 🏃‍♀️🏃‍♂️</h1>
           <div class="icons">
             <a href="https://discord.gg/fgHmrHp" target="_blank">
-              <img src="images/social/discord.png" alt="keyboard.gg's Discord" title="Discord" />
+              <img
+                src="images/social/discord.png"
+                alt="keyboard.gg's Discord"
+                title="Discord"
+              />
             </a>
             <!-- <a href="https://www.reddit.com/u/keyboardGG" target="_blank">
               <img src="images/social/reddit.png" alt="keyboard.gg's Reddit" title="Reddit" />
             </a> -->
             <a href="https://twitter.com/danielkaspo" target="_blank">
-              <img src="images/social/twitter.png" alt="keyboard.gg's Twitter" title="Twitter" />
+              <img
+                src="images/social/twitter.png"
+                alt="keyboard.gg's Twitter"
+                title="Twitter"
+              />
             </a>
             <a href="https://www.facebook.com/keyboard.gg/" target="_blank">
-              <img src="images/social/facebook.png" alt="keyboard.gg's Facebook" title="Facebook" />
+              <img
+                src="images/social/facebook.png"
+                alt="keyboard.gg's Facebook"
+                title="Facebook"
+              />
             </a>
             <a href="https://www.instagram.com/keyboard.gg/" target="_blank">
-              <img src="images/social/instagram.png" alt="keyboard.gg's Instagram" title="Instagram" />
+              <img
+                src="images/social/instagram.png"
+                alt="keyboard.gg's Instagram"
+                title="Instagram"
+              />
             </a>
             <a href="https://www.twitch.tv/nessdan/" target="_blank">
-              <img src="images/social/twitch.png" alt="keyboard.gg's Twitch" title="Twitch" />
+              <img
+                src="images/social/twitch.png"
+                alt="keyboard.gg's Twitch"
+                title="Twitch"
+              />
             </a>
           </div>
         </section>
@@ -108,13 +155,14 @@
 
         <p>
           An adapter that turns almost <em>any keyboard</em> into a Switch
-          controller. Letting you play popular games like Super Smash Bros. Ultimate with a keyboard!
+          controller. Letting you play popular games like Super Smash Bros.
+          Ultimate with a keyboard!
         </p>
         <p>
           Although it was made with <strong>Smash Ultimate</strong> in mind,
           this adapter will also be compatible with games like
-          <strong>Tetris 99</strong>, <strong>Super Mario Maker 2</strong>, <strong>Mario Kart</strong>, and
-          more!
+          <strong>Tetris 99</strong>, <strong>Super Mario Maker 2</strong>,
+          <strong>Mario Kart</strong>, and more!
         </p>
       </section>
 
@@ -149,7 +197,7 @@
         submitButton.classList.remove("failed");
         submitButton.value = "Beaming it up... 🛸";
 
-        const handleError = error => {
+        const handleError = (error) => {
           console.error("Error adding document: ", error);
           submitButton.disabled = false;
           submitButton.classList.add("failed");
@@ -162,9 +210,9 @@
             .add({
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
               email: emailVal,
-              price: 0
+              price: 0,
             })
-            .then(function(docRef) {
+            .then(function (docRef) {
               // console.log("Document written with ID: ", docRef.id);
               emailDocRef = docRef;
               emailFormEle.classList.add("hidden");
@@ -177,7 +225,6 @@
         }
       }
 
-      
       function handlePriceFormSubmit(ev) {
         ev.preventDefault();
         const submitButton = document.getElementById("interested-price-submit");
@@ -190,7 +237,7 @@
         submitButton.classList.remove("failed");
         submitButton.value = "Beaming it up... 🛸";
 
-        const handleError = error => {
+        const handleError = (error) => {
           console.error("Error adding document: ", error);
           submitButton.disabled = false;
           submitButton.classList.add("failed");
@@ -198,10 +245,11 @@
         };
 
         try {
-          emailDocRef.update({
-              price: priceVal
+          emailDocRef
+            .update({
+              price: priceVal,
             })
-            .then(function(docRef) {
+            .then(function (docRef) {
               priceFormEle.classList.add("hidden");
               thankYouEle.classList.remove("hidden");
               firebase.analytics().logEvent("price_signup");
