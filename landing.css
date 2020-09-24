@@ -91,13 +91,12 @@ small {
   #demo-video {
     width: 100%;
   }
-  
+
   .video-wrap {
     padding-bottom: 56.25%;
     width: 100%;
   }
 }
-
 
 .holder {
   max-width: 600px;
@@ -107,7 +106,8 @@ small {
   margin: 0 auto;
 }
 
-.email-form, .price-form {
+.email-form,
+.price-form {
   display: flex;
   flex-direction: column;
 }
@@ -152,6 +152,11 @@ small {
   input[type="submit"] {
     padding: 36px 8px;
   }
+}
+
+.logo {
+  max-width: 140px;
+  width: 100%;
 }
 
 main {
@@ -254,7 +259,7 @@ main {
 
 .socials {
   width: 100%;
-  margin-top: 30px; 
+  margin-top: 30px;
 }
 
 .socials .icons {
@@ -262,7 +267,7 @@ main {
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  margin-top: 30px; 
+  margin-top: 30px;
 }
 
 .socials .icons > a {
