@@ -118,9 +118,9 @@ small {
 
 .interested-submit {
   border-radius: 2px;
-  margin-top: 20px;
+  margin-top: 12px;
   -webkit-appearance: none;
-  border: none;
+  border: 2px solid #669966;
   background: linear-gradient(#2d772d, #1b901b);
   color: white;
   font-size: 2.4rem;
@@ -147,7 +147,7 @@ small {
 
 main {
   max-width: 1024px;
-  margin: 20px auto;
+  margin: 12px auto;
   width: 100%;
 }
 
