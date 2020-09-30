@@ -28,7 +28,7 @@
           <div class="intro-text">
             <h1 class="page-title">The Edgeguard Keyboard Adapter</h1>
             <h2 class="kickstarter-heading">
-              As seen on
+              Previously on
               <a
                 href="https://www.kickstarter.com/projects/edgeguard/keyboard-adapter"
                 >Kickstarter</a
@@ -36,7 +36,7 @@
             </h2>
             <p class="subtitle">
               Play Smash with a Keyboard!
-              <span class="coming-soon">(Coming soon!)</span>
+              <span class="coming-soon">(Still coming soon!)</span>
             </p>
           </div>
         </div>
@@ -44,117 +44,74 @@
           <video autoplay loop playsinline muted id="demo-video">
             <source src="https://i.imgur.com/ZxjAmMl.mp4" type="video/mp4" />
           </video>
-          <div class="video-wrap">
-            <iframe
-              class="kickstarter-video"
-              src="https://www.youtube.com/embed/4rDczKkEeYA"
-              frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+          <div class="subscribe">
+            <div id="thank-you" class="thank-you hidden">
+              <strong
+                >Thank you so much! I'm excited to be making these and I hope
+                you like it as much as I have!<br />😁</strong
+              >
+            </div>
+            <form id="price-form" name="price-form" class="price-form hidden">
+              <label
+                class="interested-label"
+                id="interested-price-label"
+                for="interested-price"
+                >What's the most you would pay for the adapter?</label
+              >
+              <input
+                type="number"
+                required
+                name="interested-price"
+                id="interested-price"
+                class="interested-input"
+                placeholder="$999"
+              />
+              <input
+                class="interested-submit"
+                id="interested-price-submit"
+                type="submit"
+                value="I'd pay this much"
+              />
+            </form>
+            <form id="email-form" name="email-form" class="email-form">
+              <label
+                class="interested-label"
+                id="interested-email-label"
+                for="interested-email"
+                >Leave your email and I'll let you know when I'm done 🙂</label
+              >
+              <input
+                type="email"
+                required
+                autocomplete="email"
+                name="interested-email"
+                id="interested-email"
+                class="interested-input"
+                placeholder="email@gmail.com"
+              />
+              <input
+                class="interested-submit"
+                id="interested-email-submit"
+                type="submit"
+                value="Tell me when it's finished!"
+              />
+            </form>
           </div>
         </div>
-        <div class="subscribe">
-          <div id="thank-you" class="thank-you hidden">
-            <strong
-              >Thank you so much! I'm excited to be making these and I hope you
-              like it as much as I have!<br />😁</strong
-            >
-          </div>
-          <form id="price-form" name="price-form" class="price-form hidden">
-            <label
-              class="interested-label"
-              id="interested-price-label"
-              for="interested-price"
-              >What's the most you would pay for the adapter?</label
-            >
-            <input
-              type="number"
-              required
-              name="interested-price"
-              id="interested-price"
-              class="interested-input"
-              placeholder="$999"
-            />
-            <input
-              class="interested-submit"
-              id="interested-price-submit"
-              type="submit"
-              value="I'd pay this much"
-            />
-          </form>
-          <form id="email-form" name="email-form" class="email-form">
-            <label
-              class="interested-label"
-              id="interested-email-label"
-              for="interested-email"
-              >Leave your email and I'll let you know when I'm done 🙂</label
-            >
-            <input
-              type="email"
-              required
-              autocomplete="email"
-              name="interested-email"
-              id="interested-email"
-              class="interested-input"
-              placeholder="email@gmail.com"
-            />
-            <input
-              class="interested-submit"
-              id="interested-email-submit"
-              type="submit"
-              value="Tell me when it's finished!"
-            />
-          </form>
-        </div>
-
-        <section class="socials">
-          <h1>Follow our adventure! (Plus DEALS!) 🏃‍♀️🏃‍♂️</h1>
-          <div class="icons">
-            <a href="https://discord.gg/fgHmrHp" target="_blank">
-              <img
-                src="images/social/discord.png"
-                alt="keyboard.gg's Discord"
-                title="Discord"
-              />
-            </a>
-            <!-- <a href="https://www.reddit.com/u/keyboardGG" target="_blank">
-              <img src="images/social/reddit.png" alt="keyboard.gg's Reddit" title="Reddit" />
-            </a> -->
-            <a href="https://twitter.com/danielkaspo" target="_blank">
-              <img
-                src="images/social/twitter.png"
-                alt="keyboard.gg's Twitter"
-                title="Twitter"
-              />
-            </a>
-            <a href="https://www.facebook.com/keyboard.gg/" target="_blank">
-              <img
-                src="images/social/facebook.png"
-                alt="keyboard.gg's Facebook"
-                title="Facebook"
-              />
-            </a>
-            <a href="https://www.instagram.com/keyboard.gg/" target="_blank">
-              <img
-                src="images/social/instagram.png"
-                alt="keyboard.gg's Instagram"
-                title="Instagram"
-              />
-            </a>
-            <a href="https://www.twitch.tv/nessdan/" target="_blank">
-              <img
-                src="images/social/twitch.png"
-                alt="keyboard.gg's Twitch"
-                title="Twitch"
-              />
-            </a>
-          </div>
-        </section>
       </div>
 
       <section class="what">
         <h2>What is this?</h2>
+
+        <div class="video-wrap">
+          <iframe
+            class="kickstarter-video"
+            src="https://www.youtube.com/embed/4rDczKkEeYA"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
 
         <p>
           An adapter that turns almost <em>any keyboard</em> into a Switch
@@ -180,6 +137,50 @@
           <li>Small form factor</li>
         </ul>
         <small>*Excludes motion control games.</small>
+      </section>
+
+      <section class="socials">
+        <h1>Follow our adventure! (Plus DEALS!) 🏃‍♀️🏃‍♂️</h1>
+        <div class="icons">
+          <a href="https://discord.gg/fgHmrHp" target="_blank">
+            <img
+              src="images/social/discord.png"
+              alt="keyboard.gg's Discord"
+              title="Discord"
+            />
+          </a>
+          <!-- <a href="https://www.reddit.com/u/keyboardGG" target="_blank">
+            <img src="images/social/reddit.png" alt="keyboard.gg's Reddit" title="Reddit" />
+          </a> -->
+          <a href="https://twitter.com/danielkaspo" target="_blank">
+            <img
+              src="images/social/twitter.png"
+              alt="keyboard.gg's Twitter"
+              title="Twitter"
+            />
+          </a>
+          <a href="https://www.facebook.com/keyboard.gg/" target="_blank">
+            <img
+              src="images/social/facebook.png"
+              alt="keyboard.gg's Facebook"
+              title="Facebook"
+            />
+          </a>
+          <a href="https://www.instagram.com/keyboard.gg/" target="_blank">
+            <img
+              src="images/social/instagram.png"
+              alt="keyboard.gg's Instagram"
+              title="Instagram"
+            />
+          </a>
+          <a href="https://www.twitch.tv/nessdan/" target="_blank">
+            <img
+              src="images/social/twitch.png"
+              alt="keyboard.gg's Twitch"
+              title="Twitch"
+            />
+          </a>
+        </div>
       </section>
     </main>
     <!-- My App JS -->

@@ -38,10 +38,6 @@ h2 {
   font-size: 2.8rem;
 }
 
-section {
-  margin: 0 10px;
-}
-
 p,
 ul,
 ol {
@@ -60,11 +56,14 @@ small {
 }
 
 #demo-video {
-  flex: 1 1 0;
+  flex: 1;
   width: 50%;
-  min-width: 200px;
-  margin: 0 auto;
-  z-index: 1;
+}
+
+.subscribe {
+  flex: 1;
+  width: 50%;
+  padding-left: 10px;
 }
 
 .video-wrap {
@@ -73,6 +72,8 @@ small {
   width: 50%;
   height: 0;
   overflow: hidden;
+  float: right;
+  margin: 0 0 10px 10px;
 }
 
 .kickstarter-video {
@@ -81,21 +82,6 @@ small {
   left: 0;
   width: 100%;
   height: 100%;
-}
-
-@media only screen and (max-width: 420px) {
-  .videos {
-    flex-direction: column;
-  }
-
-  #demo-video {
-    width: 100%;
-  }
-
-  .video-wrap {
-    padding-bottom: 56.25%;
-    width: 100%;
-  }
 }
 
 .holder {
@@ -222,11 +208,6 @@ main {
   display: inline-block;
 }
 
-.subscribe {
-  margin-top: 10px;
-  max-width: 700px;
-}
-
 .page-title {
   margin: 4px 16px;
   font-family: monospace;
@@ -258,6 +239,7 @@ main {
 }
 
 .socials {
+  text-align: center;
   width: 100%;
   margin-top: 30px;
 }
@@ -279,4 +261,25 @@ main {
 
 .socials .icons img {
   width: 100%;
+}
+
+@media only screen and (max-width: 420px) {
+  .videos {
+    flex-direction: column;
+  }
+
+  #demo-video {
+    width: 100%;
+  }
+
+  .subscribe {
+    width: 100%;
+    padding: 0;
+  }
+
+  .video-wrap {
+    padding-bottom: 56.25%;
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
 }
