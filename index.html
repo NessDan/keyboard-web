@@ -199,6 +199,23 @@
         </div>
       </section>
     </main>
+
+    <!-- Core Firebase JS SDK (required) -->
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"
+    ></script>
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/7.21.1/firebase-analytics.js"
+    ></script>
+    <script
+      defer
+      src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"
+    ></script>
+
+    <script defer src="firebase-init.js"></script>
+
     <!-- My App JS -->
     <script>
       let emailDocRef; // Store the docRef from Firebase to update the price in later.
@@ -283,21 +300,5 @@
       emailFormEle.addEventListener("submit", handleEmailFormSubmit);
       priceFormEle.addEventListener("submit", handlePriceFormSubmit);
     </script>
-
-    <!-- Core Firebase JS SDK (required) -->
-    <script
-      defer="true"
-      src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"
-    ></script>
-    <script
-      defer="true"
-      src="https://www.gstatic.com/firebasejs/7.0.0/firebase-analytics.js"
-    ></script>
-    <script
-      defer="true"
-      src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"
-    ></script>
-
-    <script defer="true" src="firebase-init.js"></script>
   </body>
 </html>
