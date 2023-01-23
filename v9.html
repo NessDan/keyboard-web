@@ -138,8 +138,8 @@
 
         <div class="video-wrap">
           <iframe
-            class="kickstarter-video"
-            src="https://www.youtube.com/embed/4rDczKkEeYA"
+            class="lazy kickstarter-video"
+            data-src="https://www.youtube.com/embed/4rDczKkEeYA"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
@@ -177,15 +177,16 @@
         <div class="icons">
           <a href="https://discord.gg/fgHmrHp" target="_blank" rel="noopener">
             <img
+              class="lazy"
               width="180"
               height="206"
-              src="images/social/discord.png"
+              data-src="images/social/discord.png"
               alt="Discord"
               title="Discord"
             />
           </a>
           <!-- <a href="https://www.reddit.com/u/keyboardGG" target="_blank" rel="noopener">
-            <img width="180" height="180" src="images/social/reddit.png" alt="Reddit" title="Reddit" />
+            <img class="lazy" width="180" height="180" data-src="images/social/reddit.png" alt="Reddit" title="Reddit" />
           </a> -->
           <a
             href="https://twitter.com/danielkaspo"
@@ -193,9 +194,10 @@
             rel="noopener"
           >
             <img
+              class="lazy"
               width="180"
               height="180"
-              src="images/social/twitter.png"
+              data-src="images/social/twitter.png"
               alt="Twitter"
               title="Twitter"
             />
@@ -206,9 +208,10 @@
             rel="noopener"
           >
             <img
+              class="lazy"
               width="180"
               height="126"
-              src="images/social/youtube.png"
+              data-src="images/social/youtube.png"
               alt="YouTube"
               title="YouTube"
             />
@@ -219,9 +222,10 @@
             rel="noopener"
           >
             <img
+              class="lazy"
               width="180"
               height="180"
-              src="images/social/facebook.png"
+              data-src="images/social/facebook.png"
               alt="Facebook"
               title="Facebook"
             />
@@ -232,9 +236,10 @@
             rel="noopener"
           >
             <img
+              class="lazy"
               width="180"
               height="180"
-              src="images/social/instagram.png"
+              data-src="images/social/instagram.png"
               alt="Instagram"
               title="Instagram"
             />
@@ -244,10 +249,10 @@
             target="_blank"
             rel="noopener"
           >
-            <img
+            <img class="lazy"
               width="180"
               height="210"
-              src="images/social/twitch.png"
+              data-src="images/social/twitch.png"
               alt="Twitch"
               title="Twitch"
             />
@@ -370,6 +375,12 @@
 
       emailFormEle.addEventListener("submit", handleEmailFormSubmit);
       priceFormEle.addEventListener("submit", handlePriceFormSubmit);
+    </script>
+
+    <script src="js/3rd-party/lazyload-17.8.3.min.js"></script>
+
+    <script>
+      var lazyLoadInstance = new LazyLoad();
     </script>
   </body>
 </html>
