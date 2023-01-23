@@ -299,7 +299,7 @@
 
         try {
           var db = getFirestore(app);
-          const emailDocRef = await doc(db, "emails");
+          const emailDocRef = await doc(db, "emails", "emails");
           await setDoc(emailDocRef, {
             timestamp: serverTimestamp(),
             email: emailVal,
