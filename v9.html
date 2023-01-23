@@ -251,8 +251,11 @@
       // Add Firebase products that you want to use
       import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
       import {
+        collection,
         doc,
+        addDoc,
         setDoc,
+        updateDoc,
         getFirestore,
         serverTimestamp,
       } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
@@ -273,6 +276,7 @@
       // Initialize Firebase
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
+      const db = getFirestore(app);
 
       let emailDocRef; // Store the docRef from Firebase to update the price in later.
       const emailFormEle = document.getElementById("email-form");
@@ -299,8 +303,7 @@
 
         try {
           var db = getFirestore(app);
-          const emailDocRef = await doc(db, "emails", "emails");
-          await setDoc(emailDocRef, {
+          emailDocRef = await addDoc(collection(db, "emails"), {
             timestamp: serverTimestamp(),
             email: emailVal,
             price: 0,
@@ -335,16 +338,13 @@
         };
 
         try {
-          emailDocRef
-            .update({
-              price: priceVal,
-            })
-            .then(function (docRef) {
-              priceFormEle.classList.add("hidden");
-              thankYouEle.classList.remove("hidden");
-              logEvent(analytics, "price_signup");
-            })
-            .catch(handleError);
+          updateDoc(emailDocRef, {
+            price: priceVal,
+          });
+
+          priceFormEle.classList.add("hidden");
+          thankYouEle.classList.remove("hidden");
+          logEvent(analytics, "price_signup");
         } catch (e) {
           handleError(e);
         }
