@@ -143,6 +143,7 @@ small {
 .logo {
   max-width: 140px;
   width: 100%;
+  height: auto;
 }
 
 main {
@@ -262,6 +263,7 @@ main {
 
 .socials .icons img {
   width: 100%;
+  height: auto;
 }
 
 @media only screen and (max-width: 420px) {
