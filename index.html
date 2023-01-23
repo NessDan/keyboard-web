@@ -50,7 +50,13 @@
       <div class="the-fold">
         <div class="heading-wrapper">
           <div class="logo-side">
-            <img class="logo" src="images/logo.png" alt="keyboard.gg Logo" />
+            <img
+              width="422"
+              height="91"
+              class="logo"
+              src="images/logo.png"
+              alt="keyboard.gg Logo"
+            />
           </div>
           <div class="intro-text">
             <h1 class="page-title">The Edgeguard Keyboard Adapter</h1>
@@ -132,8 +138,9 @@
 
         <div class="video-wrap">
           <iframe
-            class="kickstarter-video"
-            src="https://www.youtube.com/embed/4rDczKkEeYA"
+            title="The Edgeguard Adapter - Play Switch Games with a Keyboard (Kickstarter Video)"
+            class="lazy kickstarter-video"
+            data-src="https://www.youtube.com/embed/4rDczKkEeYA"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
@@ -171,13 +178,16 @@
         <div class="icons">
           <a href="https://discord.gg/fgHmrHp" target="_blank" rel="noopener">
             <img
-              src="images/social/discord.png"
+              class="lazy"
+              width="180"
+              height="206"
+              data-src="images/social/discord.png"
               alt="Discord"
               title="Discord"
             />
           </a>
           <!-- <a href="https://www.reddit.com/u/keyboardGG" target="_blank" rel="noopener">
-            <img src="images/social/reddit.png" alt="Reddit" title="Reddit" />
+            <img class="lazy" width="180" height="180" data-src="images/social/reddit.png" alt="Reddit" title="Reddit" />
           </a> -->
           <a
             href="https://twitter.com/danielkaspo"
@@ -185,7 +195,10 @@
             rel="noopener"
           >
             <img
-              src="images/social/twitter.png"
+              class="lazy"
+              width="180"
+              height="180"
+              data-src="images/social/twitter.png"
               alt="Twitter"
               title="Twitter"
             />
@@ -196,7 +209,10 @@
             rel="noopener"
           >
             <img
-              src="images/social/youtube.png"
+              class="lazy"
+              width="180"
+              height="126"
+              data-src="images/social/youtube.png"
               alt="YouTube"
               title="YouTube"
             />
@@ -207,7 +223,10 @@
             rel="noopener"
           >
             <img
-              src="images/social/facebook.png"
+              class="lazy"
+              width="180"
+              height="180"
+              data-src="images/social/facebook.png"
               alt="Facebook"
               title="Facebook"
             />
@@ -218,7 +237,10 @@
             rel="noopener"
           >
             <img
-              src="images/social/instagram.png"
+              class="lazy"
+              width="180"
+              height="180"
+              data-src="images/social/instagram.png"
               alt="Instagram"
               title="Instagram"
             />
@@ -228,8 +250,10 @@
             target="_blank"
             rel="noopener"
           >
-            <img
-              src="images/social/twitch.png"
+            <img class="lazy"
+              width="180"
+              height="210"
+              data-src="images/social/twitch.png"
               alt="Twitch"
               title="Twitch"
             />
@@ -238,105 +262,12 @@
       </section>
     </main>
 
-    <!-- Core Firebase JS SDK (required) -->
-    <script
-      defer
-      src="https://www.gstatic.com/firebasejs/7.0.0/firebase-app.js"
-    ></script>
-    <script
-      defer
-      src="https://www.gstatic.com/firebasejs/7.0.0/firebase-analytics.js"
-    ></script>
-    <script
-      defer
-      src="https://www.gstatic.com/firebasejs/7.0.0/firebase-firestore.js"
-    ></script>
-
-    <script defer src="firebase-init.js"></script>
-
     <!-- My App JS -->
+    <script type="module" defer src="js/firebase.js"></script>
+
+    <script src="js/3rd-party/lazyload-17.8.3.min.js"></script>
     <script>
-      let emailDocRef; // Store the docRef from Firebase to update the price in later.
-      const emailFormEle = document.getElementById("email-form");
-      const priceFormEle = document.getElementById("price-form");
-
-      function handleEmailFormSubmit(ev) {
-        ev.preventDefault();
-        const submitButton = document.getElementById("interested-email-submit");
-        const emailInput = document.getElementById("interested-email");
-        const emailVal = emailInput.value;
-        const thankYouEle = document.getElementById("thank-you");
-        const originalSubmitText = submitButton.value;
-
-        submitButton.disabled = true; // Don't let them press more than once
-        submitButton.classList.remove("failed");
-        submitButton.value = "Beaming it up... 🛸";
-
-        const handleError = (error) => {
-          console.error("Error adding document: ", error);
-          submitButton.disabled = false;
-          submitButton.classList.add("failed");
-          submitButton.value = "Failed 😞 Try once more!";
-        };
-
-        try {
-          var db = firebase.firestore();
-          db.collection("emails")
-            .add({
-              timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-              email: emailVal,
-              price: 0,
-            })
-            .then(function (docRef) {
-              // console.log("Document written with ID: ", docRef.id);
-              emailDocRef = docRef;
-              emailFormEle.classList.add("hidden");
-              priceFormEle.classList.remove("hidden");
-              firebase.analytics().logEvent("email_signup");
-            })
-            .catch(handleError);
-        } catch (e) {
-          handleError(e);
-        }
-      }
-
-      function handlePriceFormSubmit(ev) {
-        ev.preventDefault();
-        const submitButton = document.getElementById("interested-price-submit");
-        const priceInput = document.getElementById("interested-price");
-        const priceVal = priceInput.value;
-        const thankYouEle = document.getElementById("thank-you");
-        const originalSubmitText = submitButton.value;
-
-        submitButton.disabled = true; // Don't let them press more than once
-        submitButton.classList.remove("failed");
-        submitButton.value = "Beaming it up... 🛸";
-
-        const handleError = (error) => {
-          console.error("Error adding document: ", error);
-          submitButton.disabled = false;
-          submitButton.classList.add("failed");
-          submitButton.value = "Failed 😞 Try once more!";
-        };
-
-        try {
-          emailDocRef
-            .update({
-              price: priceVal,
-            })
-            .then(function (docRef) {
-              priceFormEle.classList.add("hidden");
-              thankYouEle.classList.remove("hidden");
-              firebase.analytics().logEvent("price_signup");
-            })
-            .catch(handleError);
-        } catch (e) {
-          handleError(e);
-        }
-      }
-
-      emailFormEle.addEventListener("submit", handleEmailFormSubmit);
-      priceFormEle.addEventListener("submit", handlePriceFormSubmit);
+      var lazyLoadInstance = new LazyLoad({ elements_selector: ".lazy" });
     </script>
   </body>
 </html>
