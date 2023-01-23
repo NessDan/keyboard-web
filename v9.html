@@ -299,12 +299,13 @@
 
         try {
           var db = getFirestore(app);
-          const emailDocRef = await setDoc(doc(db, "emails"), {
+          const emailDocRef = await doc(db, "emails");
+          await setDoc(emailDocRef, {
             timestamp: serverTimestamp(),
             email: emailVal,
             price: 0,
           });
-          console.log("Document written with ID: ", docRef.id);
+          console.log("Document written with ID: ", emailDocRef.id);
 
           emailFormEle.classList.add("hidden");
           priceFormEle.classList.remove("hidden");
