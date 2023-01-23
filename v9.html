@@ -254,6 +254,7 @@
         doc,
         setDoc,
         getFirestore,
+        serverTimestamp,
       } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
       // Your web app's Firebase configuration
@@ -299,7 +300,7 @@
         try {
           var db = getFirestore(app);
           const emailDocRef = await setDoc(doc(db, "emails"), {
-            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            timestamp: serverTimestamp(),
             email: emailVal,
             price: 0,
           });
