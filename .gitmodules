@@ -1,0 +1,3 @@
+[submodule "wizard"]
+	path = wizard
+	url = git@github.com:NessDan/keyboard-wizard.git
