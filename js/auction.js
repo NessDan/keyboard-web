@@ -276,19 +276,24 @@ const handleEmailFormSubmit = async (ev) => {
     const timestamp = serverTimestamp();
 
     if (existingDoc.exists()) {
-      emailDocRef = await updateDoc(emailDocRef, {
-        bid: priceVal,
-        timestamp,
-        bidHistory: [priceVal, ...existingDoc.data().bidHistory],
-        ip: ip || existingDoc.data().ip,
-        timeZone: getTimeZone() || existingDoc.data().timeZone,
-        locale: getLocale() || existingDoc.data().locale,
-      });
+      const existingData = existingDoc.data();
+
+      // Only update if the bid has changed
+      if (existingData.bid !== priceVal) {
+        emailDocRef = await updateDoc(emailDocRef, {
+          bid: priceVal,
+          timestamp,
+          bidHistory: [existingData.bid, ...existingData.bidHistory],
+          ip: ip || existingData.ip,
+          timeZone: getTimeZone() || existingData.timeZone,
+          locale: getLocale() || existingData.locale,
+        });
+      }
     } else {
       emailDocRef = await setDoc(emailDocRef, {
         bid: priceVal,
         timestamp,
-        bidHistory: [priceVal],
+        bidHistory: [],
         ip,
         timeZone: getTimeZone(),
         locale: getLocale(),
