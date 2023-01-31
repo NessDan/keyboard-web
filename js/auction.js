@@ -1,4 +1,6 @@
 import { getFirebase } from "./firebase.js";
+const emailFormEle = document.getElementById("email-form");
+let ip;
 
 const countdown = () => {
   const auctionCountdownEl = document.getElementById("auction-timer");
@@ -208,7 +210,20 @@ export const confetti = async () => {
   loadParticles();
 };
 
-const emailFormEle = document.getElementById("email-form");
+const getIp = () => {
+  if (!ip) {
+    fetch("https://api.ipify.org").then(
+      async (response) => (ip = await response.text())
+    );
+  }
+
+  return ip;
+};
+
+const handleFormFocus = (ev) => {
+  getIp(); // Get the user's IP address ahead of time
+  getFirebase(); // Load the Firebase SDK
+};
 
 const handleEmailFormSubmit = async (ev) => {
   ev.preventDefault();
@@ -224,12 +239,6 @@ const handleEmailFormSubmit = async (ev) => {
   emailSubmitEle.disabled = true; // Don't let them press more than once
   emailSubmitEle.classList.remove("failed");
   emailSubmitEle.value = "Beaming it up... 🛸";
-
-  const getIp = async () => {
-    const response = await fetch("https://api.ipify.org?format=json");
-    const data = await response.json();
-    return data.ip;
-  };
 
   // https://stackoverflow.com/a/70870895/231730
   const getTimeZone = () => {
@@ -260,14 +269,6 @@ const handleEmailFormSubmit = async (ev) => {
     setDoc,
     logEvent,
   } = await getFirebase();
-  let ip;
-
-  try {
-    ip = await getIp();
-  } catch (error) {
-    // Not a gamebreaking call. Just log it.
-    console.error("Couldn't get IP: ", error);
-  }
 
   try {
     let emailDocRef = doc(db, "auction", emailVal);
@@ -312,6 +313,7 @@ const handleEmailFormSubmit = async (ev) => {
   }
 };
 
+emailFormEle.addEventListener("focus", handleFormFocus, true);
 emailFormEle.addEventListener("submit", handleEmailFormSubmit);
 
 countdown();
