@@ -1,3 +1,5 @@
+import { getFirebase } from "./firebase.js";
+
 const countdown = () => {
   const auctionCountdownEl = document.getElementById("auction-timer");
 
@@ -205,5 +207,111 @@ export const confetti = async () => {
 
   loadParticles();
 };
+
+const emailFormEle = document.getElementById("email-form");
+
+const handleEmailFormSubmit = async (ev) => {
+  ev.preventDefault();
+
+  const emailInputEle = document.getElementById("interested-email");
+  const emailSubmitEle = document.getElementById("interested-email-submit");
+  const priceInput = document.getElementById("interested-price");
+  const thankYouEle = document.getElementById("thank-you");
+  const bidPriceEle = document.getElementById("bid-price");
+  const emailVal = emailInputEle.value;
+  const priceVal = priceInput.value;
+
+  emailSubmitEle.disabled = true; // Don't let them press more than once
+  emailSubmitEle.classList.remove("failed");
+  emailSubmitEle.value = "Beaming it up... 🛸";
+
+  const getIp = async () => {
+    const response = await fetch("https://api.ipify.org?format=json");
+    const data = await response.json();
+    return data.ip;
+  };
+
+  // https://stackoverflow.com/a/70870895/231730
+  const getTimeZone = () => {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone;
+  };
+
+  const getLocale = () => {
+    return Intl.DateTimeFormat().resolvedOptions().locale;
+  };
+
+  const handleError = (error) => {
+    console.error("Error: ", error);
+    emailSubmitEle.disabled = false;
+    emailSubmitEle.classList.add("failed");
+    emailSubmitEle.value = "Failed 😞 Try once more!";
+  };
+
+  const { confetti } = await import("./auction.js");
+
+  // Initialize Firebase
+  const {
+    analytics,
+    db,
+    doc,
+    getDoc,
+    serverTimestamp,
+    updateDoc,
+    setDoc,
+    logEvent,
+  } = await getFirebase();
+  let ip;
+
+  try {
+    ip = await getIp();
+  } catch (error) {
+    // Not a gamebreaking call. Just log it.
+    console.error("Couldn't get IP: ", error);
+  }
+
+  try {
+    let emailDocRef = doc(db, "auction", emailVal);
+    const existingDoc = await getDoc(emailDocRef);
+    const timestamp = serverTimestamp();
+
+    if (existingDoc.exists()) {
+      emailDocRef = await updateDoc(emailDocRef, {
+        bid: priceVal,
+        timestamp,
+        bidHistory: [priceVal, ...existingDoc.data().bidHistory],
+        ip: ip || existingDoc.data().ip,
+        timeZone: getTimeZone() || existingDoc.data().timeZone,
+        locale: getLocale() || existingDoc.data().locale,
+      });
+    } else {
+      emailDocRef = await setDoc(emailDocRef, {
+        bid: priceVal,
+        timestamp,
+        bidHistory: [priceVal],
+        ip,
+        timeZone: getTimeZone(),
+        locale: getLocale(),
+      });
+    }
+
+    const success = () => {
+      confetti(); // 🎉
+      bidPriceEle.innerText = priceVal;
+      emailFormEle.classList.add("hidden");
+      thankYouEle.classList.remove("hidden");
+      logEvent(analytics, "bid-received", {
+        email: emailVal,
+        price: priceVal,
+      });
+    };
+
+    // Success!
+    success();
+  } catch (e) {
+    handleError(e);
+  }
+};
+
+emailFormEle.addEventListener("submit", handleEmailFormSubmit);
 
 countdown();
