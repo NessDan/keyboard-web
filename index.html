@@ -26,7 +26,7 @@
     <meta property="og:url" content="https://keyboard.gg/" />
     <meta
       property="og:image"
-      content="https://keyboard.gg/images/social-media-share.jpg"
+      content="https://keyboard.gg/media/images/social-media-share.jpg"
     />
     <meta
       name="twitter:image:alt"
@@ -42,7 +42,7 @@
     />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="landing.css?v=2" />
+    <link rel="stylesheet" href="landing.css" />
   </head>
 
   <body>
@@ -51,68 +51,53 @@
         <div class="heading-wrapper">
           <div class="logo-side">
             <img
+              loading="lazy"
               width="422"
               height="91"
               class="logo"
-              src="images/logo.png"
+              src="media/images/logo.png"
               alt="keyboard.gg Logo"
             />
           </div>
           <div class="intro-text">
             <h1 class="page-title">The Edgeguard Keyboard Adapter</h1>
-            <!-- <h2 class="kickstarter-heading">
-              As seen on
-              <a
-                href="https://www.kickstarter.com/projects/edgeguard/keyboard-adapter"
-                >Kickstarter</a
-              >!
-            </h2> -->
-            <p class="subtitle">
-              Play Smash with a Keyboard!
-              <span class="coming-soon">(<em>Still</em> coming soon!)</span>
-            </p>
+            <p class="subtitle">Play Smash with a Keyboard!</p>
           </div>
         </div>
         <div class="videos">
           <video autoplay loop playsinline muted id="demo-video">
-            <source src="https://i.imgur.com/ZxjAmMl.mp4" type="video/mp4" />
+            <source
+              src="./media/videos/smash-demo.vp9.webm"
+              type="video/webm"
+            />
+            <source src="./media/videos/smash-demo.x264.mp4" type="video/mp4" />
           </video>
           <div class="subscribe">
-            <div id="thank-you" class="thank-you hidden">
-              <strong
-                >Thank you so much! I'm excited to be making these and I hope
-                you like it as much as I have!<br />😁</strong
-              >
-            </div>
-            <form id="price-form" name="price-form" class="price-form hidden">
-              <label
-                class="interested-label"
-                id="interested-price-label"
-                for="interested-price"
-                >What's the most you would pay for the adapter?</label
-              >
-              <input
-                type="number"
-                required
-                name="interested-price"
-                id="interested-price"
-                class="interested-input"
-                placeholder="$999"
-              />
-              <input
-                class="interested-submit"
-                id="interested-price-submit"
-                type="submit"
-                value="I'd pay this much"
-              />
-            </form>
             <form id="email-form" name="email-form" class="email-form">
               <label
                 class="interested-label"
                 id="interested-email-label"
                 for="interested-email"
-                >Leave your email and I'll let you know when I'm done 🙂</label
-              >
+                ><div>✨<br />✨</div>
+                <div>
+                  Beta Auction Live!<br />
+                  Name Your Price!
+                  <small
+                    ><a
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://keycult.com/blogs/typings/the-vickrey-auction-and-why-were-using-it"
+                      >(Why?)</a
+                    ></small
+                  >
+                </div>
+                <div>✨<br />✨</div>
+              </label>
+              <span class="auction-countdown"
+                ><b><u>USA only.</u></b> Beta auction ends in <br /><span
+                  id="auction-timer"
+                ></span
+              ></span>
               <input
                 type="email"
                 required
@@ -120,15 +105,31 @@
                 name="interested-email"
                 id="interested-email"
                 class="interested-input"
-                placeholder="coolperson@gmail.com"
+                placeholder="coolname@gmail.com"
+              />
+              <input
+                type="number"
+                required
+                name="interested-price"
+                id="interested-price"
+                class="interested-input"
+                placeholder="$0"
+                min="0"
+                max="900"
               />
               <input
                 class="interested-submit"
                 id="interested-email-submit"
                 type="submit"
-                value="Tell me when it's finished!"
+                value="Submit bid!"
               />
             </form>
+            <div id="thank-you" class="thank-you hidden">
+              <strong
+                >We got your bid for $<span id="bid-price"></span>! Check your
+                email in a few days to see if you're a winner!<br />😁</strong
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -137,10 +138,13 @@
         <h2>What is this?</h2>
 
         <div class="video-wrap">
+          <!-- https://css-tricks.com/lazy-load-embedded-youtube-videos/ -->
           <iframe
+            srcdoc="<style>#tv{background:red;border-radius:50% / 10%;color:#FFF;font-size:2em;height:3em;margin:auto;padding:0;position:absolute;text-align:center;text-indent:.1em;transition:all 150ms ease-out;width:4em;top:0;bottom:0;left:0;right:0;scale:.5}#tv::before{background:inherit;border-radius:5% / 50%;bottom:9%;content:'';left:-5%;position:absolute;right:-5%;top:9%}#tv::after{border-style:solid;border-width:1em 0 1em 1.732em;border-color:transparent transparent transparent white;content:' ';font-size:.75em;height:0;margin:-1em 0 0 -.75em;top:50%;position:absolute;width:0}img{position:absolute;width:100%}#wrap{position:absolute;top:0;left:0;bottom:0;right:0;width:100%;overflow:hidden}</style><div id=wrap><a href=https://www.youtube.com/embed/4rDczKkEeYA?autoplay=1><img src=/media/images/social-media-share.jpg alt='The Edgeguard Adapter - Play Switch Games with a Keyboard (Kickstarter Video)'><div id='tv'></div></a></div>"
+            loading="lazy"
             title="The Edgeguard Adapter - Play Switch Games with a Keyboard (Kickstarter Video)"
-            class="lazy kickstarter-video"
-            data-src="https://www.youtube.com/embed/4rDczKkEeYA"
+            class="kickstarter-video"
+            src="https://www.youtube.com/embed/4rDczKkEeYA"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
@@ -178,27 +182,24 @@
         <div class="icons">
           <a href="https://discord.gg/fgHmrHp" target="_blank" rel="noopener">
             <img
-              class="lazy"
+              loading="lazy"
               width="180"
               height="206"
-              data-src="images/social/discord.png"
+              src="media/images/social/discord.png"
               alt="Discord"
               title="Discord"
             />
           </a>
-          <!-- <a href="https://www.reddit.com/u/keyboardGG" target="_blank" rel="noopener">
-            <img class="lazy" width="180" height="180" data-src="images/social/reddit.png" alt="Reddit" title="Reddit" />
-          </a> -->
           <a
             href="https://twitter.com/danielkaspo"
             target="_blank"
             rel="noopener"
           >
             <img
-              class="lazy"
+              loading="lazy"
               width="180"
               height="180"
-              data-src="images/social/twitter.png"
+              src="media/images/social/twitter.png"
               alt="Twitter"
               title="Twitter"
             />
@@ -209,10 +210,10 @@
             rel="noopener"
           >
             <img
-              class="lazy"
+              loading="lazy"
               width="180"
               height="126"
-              data-src="images/social/youtube.png"
+              src="media/images/social/youtube.png"
               alt="YouTube"
               title="YouTube"
             />
@@ -223,10 +224,10 @@
             rel="noopener"
           >
             <img
-              class="lazy"
+              loading="lazy"
               width="180"
               height="180"
-              data-src="images/social/facebook.png"
+              src="media/images/social/facebook.png"
               alt="Facebook"
               title="Facebook"
             />
@@ -237,37 +238,19 @@
             rel="noopener"
           >
             <img
-              class="lazy"
+              loading="lazy"
               width="180"
               height="180"
-              data-src="images/social/instagram.png"
+              src="media/images/social/instagram.png"
               alt="Instagram"
               title="Instagram"
             />
           </a>
-          <!-- <a
-            href="https://www.twitch.tv/nessdan/"
-            target="_blank"
-            rel="noopener"
-          >
-            <img class="lazy"
-              width="180"
-              height="210"
-              data-src="images/social/twitch.png"
-              alt="Twitch"
-              title="Twitch"
-            />
-          </a> -->
         </div>
       </section>
     </main>
 
     <!-- My App JS -->
-    <script type="module" defer src="js/firebase.js"></script>
-
-    <script src="js/3rd-party/lazyload-17.8.3.min.js"></script>
-    <script>
-      var lazyLoadInstance = new LazyLoad({ elements_selector: ".lazy" });
-    </script>
+    <script type="module" defer src="js/auction.js"></script>
   </body>
 </html>

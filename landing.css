@@ -8,7 +8,7 @@ a {
 }
 
 a:visited {
-  color: mediumpurple;
+  color: mediumaquamarine;
 }
 
 html {
@@ -52,7 +52,7 @@ small {
 .videos {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
 }
 
 #demo-video {
@@ -92,6 +92,11 @@ small {
   margin: 0 auto;
 }
 
+.auction-countdown {
+  font-size: 1.7rem;
+  margin: 10px;
+}
+
 .email-form,
 .price-form {
   display: flex;
@@ -104,6 +109,7 @@ small {
   border-radius: 5px;
   border: 2px solid #d0daff;
   text-align: center;
+  margin-bottom: 12px;
 }
 
 .interested-submit[disabled] {
@@ -118,7 +124,6 @@ small {
 
 .interested-submit {
   border-radius: 2px;
-  margin-top: 12px;
   appearance: none;
   border: 2px solid #669966;
   background: linear-gradient(#2d772d, #1b901b);
@@ -179,8 +184,18 @@ main {
 }
 
 .interested-label {
-  font-size: 2.4rem;
-  margin: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 2.8rem;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 420px) {
+  .interested-label {
+    font-size: 2rem;
+    margin-top: 10px;
+  }
 }
 
 /* .shadow {
