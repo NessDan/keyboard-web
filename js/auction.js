@@ -1,6 +1,6 @@
 import { getFirebase } from "./firebase.js";
 const emailFormEle = document.getElementById("email-form");
-let ip;
+let ip = "";
 
 const countdown = () => {
   const auctionCountdownEl = document.getElementById("auction-timer");
@@ -221,6 +221,8 @@ const getIp = () => {
 };
 
 const handleFormFocus = (ev) => {
+  emailFormEle.removeEventListener("focus", handleFormFocus, true);
+
   getIp(); // Get the user's IP address ahead of time
   getFirebase(); // Load the Firebase SDK
 };
