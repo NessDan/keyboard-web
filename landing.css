@@ -240,8 +240,8 @@ main {
   display: none;
 }
 
-.thank-you {
-  font-size: 3rem;
+.thank-you * {
+  font-size: 2.65rem;
 }
 
 @media screen and (min-width: 700px) and (min-height: 1200px) {
