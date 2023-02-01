@@ -290,6 +290,13 @@ const handleEmailFormSubmit = async (ev) => {
           timeZone: getTimeZone() || existingData.timeZone,
           locale: getLocale() || existingData.locale,
         });
+
+        if (twq) {
+          // Track if user came from Twitter ad
+          twq("event", "tw-odoha-odohr", {
+            email_address: emailVal,
+          });
+        }
       }
     } else {
       emailDocRef = await setDoc(emailDocRef, {
@@ -300,6 +307,13 @@ const handleEmailFormSubmit = async (ev) => {
         timeZone: getTimeZone(),
         locale: getLocale(),
       });
+
+      if (twq) {
+        // Track if user came from Twitter ad
+        twq("event", "tw-odoha-odohr", {
+          email_address: emailVal,
+        });
+      }
     }
 
     const success = () => {
