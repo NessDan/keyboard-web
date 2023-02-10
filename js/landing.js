@@ -37,7 +37,7 @@ const handleEmailFormSubmit = async (e) => {
   const formData = new FormData();
 
   formData.append("email", email);
-  formData.append("l", "7cdd275b-cb68-4c08-8872-e59479d03767"); // Keyboard.gg Email Updates List ID
+  formData.append("l", "9cd4ae6c-5a93-4976-a44f-f1865dc2b7d7"); // Keyboard.gg Email Updates List ID
   formData.append("name", "");
   formData.append("nonce", "");
 
