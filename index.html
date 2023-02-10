@@ -118,25 +118,14 @@
                 id="interested-email-label"
                 for="interested-email"
                 ><div>✨<br />✨</div>
-                <div>
-                  Beta Auction Live!<br />
-                  Name Your Price!
-                  <small
-                    ><a
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href="https://keycult.com/blogs/typings/the-vickrey-auction-and-why-were-using-it"
-                      >(Why?)</a
-                    ></small
-                  >
-                </div>
+                <div>Beta Sale Finished!</div>
                 <div>✨<br />✨</div>
               </label>
-              <span class="auction-countdown"
-                ><b><u>USA only.</u></b> Beta auction ends in <br /><span
-                  id="auction-timer"
-                ></span
-              ></span>
+              <p class="auction-countdown">
+                <b>Winners will be emailed!</b> (<em>Check your spam!</em>
+                🐷)<br /><b>Get notified about future sales:</b>
+              </p>
+              <input type="hidden" name="nonce" />
               <input
                 type="email"
                 required
@@ -148,39 +137,29 @@
                 title="Email"
               />
               <input
-                type="number"
-                required
-                name="interested-price"
-                id="interested-price"
-                class="interested-input"
-                placeholder="$0"
-                min="0"
-                max="900"
-                title="Price"
-              />
-              <input
                 class="interested-submit"
-                id="interested-email-submit"
+                id="interested-submit"
+                id="interested-submit"
                 type="submit"
-                value="Submit bid!"
+                value="Notify Me!"
               />
             </form>
             <div id="thank-you" class="thank-you hidden">
+              <div class="big-emoji">💌</div>
               <p>
-                We got your bid for $<span id="bid-price"></span>! Check your
-                email in a few days to see if you're a winner! 😁
+                <strong>Confirmation email sent!<br />🫡</strong>
               </p>
-
               <p>
                 Now
-                <a href="https://discord.gg/fgHmrHp">join the Discord</a> for
-                frequent updates!
+                <a href="https://discord.gg/fgHmrHp" target="_blank"
+                  >join the Discord</a
+                >
+                for updates!
               </p>
             </div>
           </div>
         </div>
       </div>
-
       <section class="what">
         <h2>What is this?</h2>
 
@@ -235,6 +214,20 @@
               src="media/images/social/discord.webp"
               alt="Discord"
               title="Discord"
+            />
+          </a>
+          <a
+            href="https://www.tiktok.com/@danielkaspo"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              loading="lazy"
+              width="180"
+              height="180"
+              src="media/images/social/tiktok.webp"
+              alt="TikTok"
+              title="TikTok"
             />
           </a>
           <a
@@ -298,6 +291,6 @@
     </main>
 
     <!-- My App JS -->
-    <script type="module" defer src="js/auction.js"></script>
+    <script type="module" defer src="js/landing.js"></script>
   </body>
 </html>

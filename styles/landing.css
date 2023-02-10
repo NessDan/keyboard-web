@@ -242,12 +242,19 @@ main {
 
 .thank-you * {
   font-size: 2.65rem;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
 @media screen and (min-width: 700px) and (min-height: 1200px) {
   .thank-you {
     font-size: 4rem;
   }
+}
+
+.big-emoji {
+  font-size: 16rem;
+  line-height: 0.8;
 }
 
 .word-box {
