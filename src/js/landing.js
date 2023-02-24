@@ -1,4 +1,4 @@
-import { setupFirebaseAnalytics } from "./firebase.js";
+// import { setupFirebaseAnalytics } from "./firebase.js";
 import { confetti } from "./confetti.js";
 
 const emailFormEle = document.getElementById("email-form");
@@ -27,9 +27,9 @@ const handleEmailFormSubmit = async (e) => {
   const { analytics, logEvent } = await setupFirebaseAnalytics();
 
   try {
-    logEvent(analytics, "email_submitted", {
-      email,
-    });
+    // logEvent(analytics, "email_submitted", {
+    //   email,
+    // });
   } catch (error) {
     console.error("Analytic log failed: ", error);
   }
@@ -64,9 +64,9 @@ const handleEmailFormSubmit = async (e) => {
       emailFormEle.classList.add("hidden");
       thankYouEle.classList.remove("hidden");
 
-      logEvent(analytics, "email-signup", {
-        email: email,
-      });
+      // logEvent(analytics, "email-signup", {
+      //   email: email,
+      // });
     };
 
     // Success!
@@ -80,4 +80,4 @@ const handleEmailFormSubmit = async (e) => {
 
 emailFormEle.addEventListener("submit", handleEmailFormSubmit);
 
-setupFirebaseAnalytics(); // Setup analytics on load.
+// setupFirebaseAnalytics(); // Setup analytics on load.

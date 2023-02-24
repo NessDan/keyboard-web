@@ -1,0 +1,24 @@
+{
+  "name": "keyboard-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src\\**.html src\\**\\*.html --dist-dir dist\\ --https",
+    "build": "parcel build src\\**.html src\\**\\*.html --dist-dir dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "dependencies": {
+    "firebase": "^9.17.1",
+    "tsparticles": "^2.9.3",
+    "tsparticles-engine": "^2.9.3"
+  },
+  "devDependencies": {
+    "@parcel/packager-raw-url": "^2.8.3",
+    "@parcel/transformer-webmanifest": "^2.8.3",
+    "parcel": "^2.8.3",
+    "path-browserify": "^1.0.1",
+    "process": "^0.11.10"
+  }
+}

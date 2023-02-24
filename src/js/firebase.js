@@ -68,9 +68,7 @@ export const setupFirebaseApp = async () => {
     };
   }
 
-  ({ initializeApp } = await import(
-    "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-  ));
+  ({ initializeApp } = await import("firebase/app"));
 
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
