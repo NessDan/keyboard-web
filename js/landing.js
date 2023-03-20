@@ -1,4 +1,4 @@
-import { setupFirebaseAnalytics } from "./firebase.js";
+import { setupFirebaseAnalytics } from "./shared/web/firebase.js";
 import { confetti } from "./confetti.js";
 
 const emailFormEle = document.getElementById("email-form");
