@@ -10,3 +10,6 @@
 [submodule "angles"]
 	path = angles
 	url = git@github.com:NessDan/keyboard-angle-demo.git
+[submodule "contest"]
+	path = contest
+	url = git@github.com:NessDan/keyboard-angle-demo.git
