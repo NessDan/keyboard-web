@@ -224,6 +224,27 @@ main {
   display: inline-block;
 }
 
+.buy-it-now {
+  border: 3px solid mediumspringgreen;
+  padding: 8px;
+  display: block;
+  font-size: 400%;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.buy-it-now:hover {
+  transition: box-shadow 0.1s ease-in-out;
+  animation: wiggle 0.5s ease-in-out infinite;
+  box-shadow: 0 0 10px 1px mediumspringgreen;
+}
+
+.buy-it-now:active {
+  transition: box-shadow 0.1s ease-in-out;
+  animation: wiggleTight 0.2s ease-in-out infinite;
+  box-shadow: 0 0 2px 1px mediumspringgreen;
+}
+
 .page-title {
   margin: 4px 16px;
   font-family: monospace;
@@ -306,5 +327,41 @@ main {
     padding-bottom: 56.25%;
     width: 100%;
     margin: 0 0 10px 0;
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-0.7deg);
+  }
+  50% {
+    transform: rotate(0.7deg);
+  }
+  75% {
+    transform: rotate(-0.7deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes wiggleTight {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-0.3deg);
+  }
+  50% {
+    transform: rotate(0.3deg);
+  }
+  75% {
+    transform: rotate(-0.3deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }

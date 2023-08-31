@@ -120,16 +120,27 @@
             <source src="./media/videos/smash-demo.x264.mp4" type="video/mp4" />
           </video>
           <div class="subscribe">
+            <a
+              class="buy-it-now"
+              href="https://buy.stripe.com/4gw9DrbQ3bYj9AkeUY"
+              target="_blank"
+              id="buy-it-now"
+              >Buy It Now! $169</a
+            >
             <form id="email-form" name="email-form" class="email-form">
               <label
                 class="interested-label"
                 id="interested-email-label"
                 for="interested-email"
-                ><div>✨<br />✨</div>
+              >
                 <div>
-                  <h2>Beta Sale Finished!<br />Stock Drop Notifications:</h2>
+                  <h2>
+                    Out of your price range?<br /><small
+                      >Put your email &amp; price below, we'll notify you if it
+                      drops</small
+                    >
+                  </h2>
                 </div>
-                <div>✨<br />✨</div>
               </label>
               <!-- <p class="auction-countdown">
                 <b>Get notified about future sales:</b>
@@ -146,11 +157,23 @@
                 title="Email"
               />
               <input
+                type="number"
+                required
+                autocomplete="price"
+                name="interested-price"
+                id="interested-price"
+                class="interested-input"
+                placeholder="Price ($)"
+                min="10"
+                max="900"
+                title="Price"
+              />
+              <input
                 class="interested-submit"
                 id="interested-submit"
                 id="interested-submit"
                 type="submit"
-                value="Tell me when it's in stock!"
+                value="Tell me if price drops!"
               />
             </form>
             <div id="thank-you" class="thank-you hidden">
@@ -210,6 +233,23 @@
           <li>Small form factor</li>
         </ul>
         <small>*Excludes motion control games.</small>
+      </section>
+
+      <section class="beta">
+        <h1>🚧 Pardon our Dust! We're still in beta! 🚧</h1>
+        <p>A few things are limited in beta right now, the main ones being:</p>
+        <ul>
+          <li>
+            Configuration software is bare-bones and <em>WAY</em> more
+            complicated than it should be. (See
+            <a
+              target="_blank"
+              href="https://www.youtube.com/watch?v=o7j70ty_f4I"
+              >Beta Manual</a
+            >.)
+          </li>
+          <li>Only one profile is configurable.</li>
+        </ul>
       </section>
 
       <section class="socials">
