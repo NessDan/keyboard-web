@@ -245,7 +245,7 @@ main {
 
 .buy-it-now {
   transition: box-shadow 0.5s ease-in-out;
-  animation: wiggle 0.5s ease-in-out 1s infinite;
+  animation: wiggle 0.5s ease-in-out infinite;
   box-shadow: 0 0 10px 1px mediumspringgreen;
 }
 
