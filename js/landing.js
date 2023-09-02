@@ -14,7 +14,7 @@ const handleEmailFormSubmit = async (e) => {
   const priceInputEle = document.getElementById("interested-price");
   const thankYouEle = document.getElementById("thank-you");
   const email = emailInputEle.value;
-  const price = priceInputEle.value;
+  const price = priceInputEle?.value;
 
   const handleError = (error) => {
     console.error("Error adding document: ", error);
@@ -40,7 +40,7 @@ const handleEmailFormSubmit = async (e) => {
   const formData = new FormData();
 
   formData.append("email", email);
-  formData.append("l", "0a0d8ba4-a10a-4af7-9f6f-630d23f6c1cd"); // TEST
+  formData.append("l", "9cd4ae6c-5a93-4976-a44f-f1865dc2b7d7"); // Keyboard.gg Email Updates List ID
   formData.append("attribs", JSON.stringify({ test: "test" })); // Doesn't add custom attribute
   formData.append("name", "");
   formData.append("nonce", "");
