@@ -126,7 +126,7 @@ small {
   border-radius: 2px;
   appearance: none;
   border: 2px solid #669966;
-  background: linear-gradient(#2d772d, #1b901b);
+  background: seagreen;
   color: white;
   font-size: 2.4rem;
   padding: 16px 8px;
@@ -191,7 +191,11 @@ main {
   font-weight: bold;
 }
 
-@media only screen and (max-width: 420px) {
+.interested-label h2 {
+  margin-top: 0;
+}
+
+@media only screen and (max-width: 860px) {
   .interested-label {
     font-size: 2rem;
     margin-top: 10px;
@@ -222,6 +226,45 @@ main {
 
 .coming-soon {
   display: inline-block;
+}
+
+.buy-it-now {
+  border: 3px solid white;
+  background-color: forestgreen;
+  color: white;
+  padding: 16px;
+  display: inline-block;
+  font-size: 500%;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.buy-it-now:visited {
+  color: white;
+}
+
+.buy-it-now {
+  transition: box-shadow 0.5s ease-in-out;
+  animation: wiggle 0.5s ease-in-out 1s infinite;
+  box-shadow: 0 0 10px 1px mediumspringgreen;
+}
+
+.buy-it-now:hover,
+.buy-it-now:focus {
+  transition: box-shadow 0.1s ease-in-out;
+  animation: wiggleTight 0.2s ease-in-out infinite;
+  box-shadow: 0 0 2px 1px mediumspringgreen;
+}
+
+.sold-out {
+  border: 3px solid white;
+  background-color: transparent;
+  color: white;
+  padding: 16px;
+  display: inline-block;
+  font-size: 500%;
+  border-radius: 8px;
+  text-decoration: none;
 }
 
 .page-title {
@@ -288,7 +331,7 @@ main {
   height: auto;
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 860px) {
   .videos {
     flex-direction: column;
   }
@@ -298,6 +341,7 @@ main {
   }
 
   .subscribe {
+    margin-top: 16px;
     width: 100%;
     padding: 0;
   }
@@ -306,5 +350,41 @@ main {
     padding-bottom: 56.25%;
     width: 100%;
     margin: 0 0 10px 0;
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-0.7deg);
+  }
+  50% {
+    transform: rotate(0.7deg);
+  }
+  75% {
+    transform: rotate(-0.7deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes wiggleTight {
+  0% {
+    transform: rotate(0deg) translate(1px, 1px);
+  }
+  25% {
+    transform: rotate(-0.9deg) translate(-1px, 1px);
+  }
+  50% {
+    transform: rotate(0.9deg) translate(1px, -1px);
+  }
+  75% {
+    transform: rotate(-0.9deg) translate(-1px, -1px);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
