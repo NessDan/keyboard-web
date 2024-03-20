@@ -40,8 +40,6 @@ const handleEmailFormSubmit = async (ev) => {
     emailSubmitEle.value = "Failed 😞 Try once more!";
   };
 
-  const { confetti } = await import("./auction.js");
-
   // Initialize Firebase
   const {
     analytics,
@@ -99,7 +97,7 @@ const handleEmailFormSubmit = async (ev) => {
     }
 
     const success = () => {
-      confetti(); // 🎉
+      // confetti(); // 🎉
       bidPriceEle.innerText = priceVal;
       emailFormEle.classList.add("hidden");
       thankYouEle.classList.remove("hidden");

@@ -1,5 +1,4 @@
 import { setupFirebaseAnalytics } from "./shared/web/firebase.js";
-import { confetti } from "./confetti.js";
 
 const emailFormEle = document.getElementById("email-form");
 const buyItNowEle = document.getElementById("buy-it-now");
@@ -62,8 +61,10 @@ const handleEmailFormSubmit = async (e) => {
 
   if (response.ok) {
     const success = () => {
-      confetti(); // 🎉
-      window.confetti = confetti; // For debugging
+      // confetti(); // 🎉 // Disabled because the CDN import broke the site, then fixed it but
+      // didn't want to use a CDN so I tried hosting the files locally but you can't just copy
+      // paste the files from the the CDN because it's trying to import the files from the CDN
+      // and not from the local. So not worth the hassle. Spent too much time on this.
 
       emailFormEle.classList.add("hidden");
       thankYouEle.classList.remove("hidden");
@@ -82,7 +83,7 @@ const handleEmailFormSubmit = async (e) => {
   return response;
 };
 
-buyItNowEle?.addEventListener("click", confetti);
+// buyItNowEle?.addEventListener("click", confetti); // See above for why this is commented out
 
 emailFormEle.addEventListener("submit", handleEmailFormSubmit);
 
