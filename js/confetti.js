@@ -3,11 +3,11 @@ let tsParticles, loadFull;
 export const confetti = async () => {
   tsParticles ??
     ({ tsParticles } = await import(
-      "https://cdn.jsdelivr.net/npm/tsparticles-engine/+esm"
+      "https://cdn.jsdelivr.net/npm/tsparticles-engine@2.12.0/+esm"
     ));
   loadFull ??
     ({ loadFull } = await import(
-      "https://cdn.jsdelivr.net/npm/tsparticles/+esm"
+      "https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/+esm"
     ));
 
   await loadFull(tsParticles);
