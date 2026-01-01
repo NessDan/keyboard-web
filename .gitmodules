@@ -1,15 +1,15 @@
 [submodule "wizard"]
-	path = old-wizard
+	path = public/old-wizard
 	url = git@github.com:NessDan/keyboard-wizard.git
 [submodule "advanced"]
-	path = advanced
+	path = public/advanced
 	url = git@github.com:NessDan/keyboard-configure-simple.git
 [submodule "js/shared"]
-	path = js/shared
+	path = public/js/shared
 	url = git@github.com:NessDan/keyboard-shared.git
 [submodule "angles"]
-	path = angles
+	path = public/angles
 	url = git@github.com:NessDan/keyboard-angle-demo.git
 [submodule "contest"]
-	path = contest
+	path = public/contest
 	url = git@github.com:NessDan/keyboard-angle-demo.git
