@@ -13,3 +13,6 @@
 [submodule "contest"]
 	path = public/contest
 	url = git@github.com:NessDan/keyboard-angle-demo.git
+[submodule "apps/wizard"]
+	path = apps/wizard
+	url = git@github.com:NessDan/keyboard-wizard-v2.git

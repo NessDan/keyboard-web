@@ -74,7 +74,6 @@ if (fs.existsSync(APPS_DIR)) {
 console.log('gh-pages deployment starting...');
 ghpages.publish(DIST_DIR, {
     branch: 'gh-pages',
-    dotfiles: true
 }, (err) => {
     if (err) {
         console.error('❌ Deployment failed:', err);
