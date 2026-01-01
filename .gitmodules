@@ -1,5 +1,5 @@
 [submodule "wizard"]
-	path = wizard
+	path = old-wizard
 	url = git@github.com:NessDan/keyboard-wizard.git
 [submodule "advanced"]
 	path = advanced
