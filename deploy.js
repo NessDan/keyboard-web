@@ -19,6 +19,17 @@ const APPS_DIR = path.join(__dirname, 'apps');
 
 console.log('🚀 Starting deployment...');
 
+// 0. Update Submodules
+try {
+    console.log('🔄 Updating submodules...');
+    execSync('git submodule update --init --remote --recursive --merge', { stdio: 'inherit' });
+} catch (err) {
+    console.error('❌ Failed to update submodules:', err);
+    // Proceeding anyway might be risky, but we'll let it try to build what's there
+    // or you could process.exit(1) here if strict sync is required.
+    console.log('⚠️  Continuing deployment with existing submodule states...');
+}
+
 // 1. Clean & Create _site
 if (fs.existsSync(DIST_DIR)) {
     fs.rmSync(DIST_DIR, { recursive: true, force: true });
