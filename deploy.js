@@ -58,7 +58,12 @@ if (fs.existsSync(APPS_DIR)) {
         if (fs.existsSync(path.join(appPath, 'package.json'))) {
             try {
                 console.log(`   📦 Installing & Building ${appName}...`);
-                execSync('npm install', { cwd: appPath, stdio: 'inherit' });
+                // Use npm ci to avoid modifying package-lock.json and ensure clean install
+                if (fs.existsSync(path.join(appPath, 'package-lock.json'))) {
+                    execSync('npm ci', { cwd: appPath, stdio: 'inherit' });
+                } else {
+                    execSync('npm install --no-package-lock', { cwd: appPath, stdio: 'inherit' });
+                }
                 execSync('npm run build', { cwd: appPath, stdio: 'inherit' });
 
                 // Assume output is 'dist', check for it
